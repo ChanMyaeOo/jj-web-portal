@@ -38,8 +38,10 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "58px",
         "& > li": {
             listStyle: "none",
+            zIndex: '1000',
             "&:hover": {
                 "& $ul": {
+                    zIndex: '1000',
                     display: "block",
                 },
             },
@@ -56,7 +58,10 @@ const useStyles = makeStyles((theme) => ({
     innerHeaderContent: {
         background: "#b72a0f",
         display: "none",
-        "& > li": {
+        "& > a": {
+            textDecoration: 'none'
+        },
+        "& > a > li": {
             listStyle: "none",
             padding: "15px 0",
             textAlign: "center",

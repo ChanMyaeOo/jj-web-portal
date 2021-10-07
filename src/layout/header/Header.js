@@ -50,55 +50,55 @@ const Header = () => {
                         <li>
                             <p>british story</p>
                             <ul className={classes.innerHeaderContent}>
-                                <li>Test 1</li>
-                                <li>Test 2</li>
-                                <li>Test 3</li>
-                                <li>Test 4</li>
-                                <li>Test 5</li>
+                               <Link to="/living-location-details"><li>Living/Location</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>ask and answer</p>
                             <ul className={classes.innerHeaderContent}>
-                                <li>Test 1</li>
-                                <li>Test 2</li>
-                                <li>Test 3</li>
-                                <li>Test 4</li>
-                                <li>Test 5</li>
+                                <Link to="/living-location-details"><li>Living/Location</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>buy and sell</p>
                             <ul className={classes.innerHeaderContent}>
-                                <li>Test 1</li>
-                                <li>Test 2</li>
-                                <li>Test 3</li>
-                                <li>Test 4</li>
-                                <li>Test 5</li>
+                               <Link to="/living-location-details"><li>Living/Location</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>job search</p>
                             <ul className={classes.innerHeaderContent}>
-                                <li>Test 1</li>
-                                <li>Test 2</li>
-                                <li>Test 3</li>
-                                <li>Test 4</li>
-                                <li>Test 5</li>
+                                <Link to="/living-location-details"><li>Living/Location</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>lodgment</p>
                             <ul className={classes.innerHeaderContent}>
-                                <li>Test 1</li>
-                                <li>Test 2</li>
-                                <li>Test 3</li>
-                                <li>Test 4</li>
-                                <li>Test 5</li>
+                               <Link to="/living-location-details"><li>Living/Location</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details"><li>Test</li></Link>
                             </ul>
                         </li>
                     </ul>
@@ -158,7 +158,7 @@ const Header = () => {
                         </div>
 
                         <ul className={classes.resInnerContent}>
-                            <li>test</li>
+                            <li>Living/Location</li>
                             <li>test</li>
                             <li>test</li>
                             <li>test</li>

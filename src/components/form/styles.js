@@ -10,6 +10,23 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         margin: "15px 0",
     },
+    form: {
+         display: 'flex',
+         flexDirection: 'column'
+    },
+    formTitle: {
+          height: '40px',
+          padding: '0 10px'
+    },
+    formDescription: {
+          margin: '20px 0',
+          height: '200px',
+          padding: '10px'
+    },
+    btnCompleted: {
+         width: 'fit-content',
+         marginLeft: 'auto'
+    }
 }));
 
 export default useStyles;

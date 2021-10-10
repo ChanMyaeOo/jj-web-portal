@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
 import { useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 import FileBase from 'react-file-base64';
+import { createPost } from '../../actions/posts'
 import useStyles from "./styles";
 
 const Form = () => {
@@ -12,10 +14,11 @@ const Form = () => {
     })
     const classes = useStyles();
     const location = useLocation();
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(postData)
+        dispatch(createPost(postData))
     }
 
     return (

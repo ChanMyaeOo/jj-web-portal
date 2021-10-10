@@ -1,6 +1,6 @@
 import React from 'react'
 import LivLocImg from '../../images/liv-loc.png'
-import Preview from '../../components/Preview/Preview'
+import Preview from '../../components/preview/Preview'
 import useStyles from './styles'
 
 const LivingLocation = () => {

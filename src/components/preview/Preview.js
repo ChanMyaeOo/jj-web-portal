@@ -17,12 +17,17 @@ const Preview = ({ imgUrl, title }) => {
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
                 <div className={classes.logoWrapper}>
-                    <img src={imgUrl} alt="living/location" />
+                    <img src={imgUrl} alt="logo" />
                     <span>{title}</span>
                 </div>
                 <div className={classes.detailsHeader}>
-                    <p>Total 200 posts</p>
-                    <Link to="/">writing</Link>
+                    <p>Total 200 posts </p>
+                    
+                    <Link to={{
+                        pathname: '/form',
+                        imgUrl,
+                        title
+                    }}>writing</Link>
                 </div>
 
                 <div className={classes.previewTable}>

@@ -1,4 +1,4 @@
-import { CREATE, FETCH_ALL } from '../constants/actionTypes'
+import { CREATE, FETCH_ALL, FETCH_POST } from '../constants/actionTypes'
 
 export default (state = { posts: []}, action) => {
     switch(action.type) {
@@ -12,6 +12,8 @@ export default (state = { posts: []}, action) => {
                 ...state,
                 posts: action.payload
             }
+        case FETCH_POST:
+            return { ...state, post: action.payload.post };
         default:
             return state
     }

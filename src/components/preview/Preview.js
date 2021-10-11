@@ -61,7 +61,7 @@ const Preview = ({ imgUrl, title }) => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                    <Posts />
+                                    <Posts imgUrl={imgUrl} title={title}/>
                                     {/* <TableRow >
                                         <TableCell component="th" scope="row">
                                             100

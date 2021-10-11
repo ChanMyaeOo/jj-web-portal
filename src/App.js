@@ -12,6 +12,7 @@ import Form from './components/form/Form'
 import './style.css'
 import { useDispatch } from 'react-redux'
 import { getPosts } from './actions/posts'
+import PostDetails from './components/post-details/PostDetails'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -24,6 +25,11 @@ const App = () => {
             <Router>
                 <ScrollToTop />
                 <Switch>
+                    <Route path="/posts/:id">
+                        <Layout>
+                            <PostDetails />
+                        </Layout>
+                    </Route>
                     <Route path="/form">
                         <Layout>
                             <Form />

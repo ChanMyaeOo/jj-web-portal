@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { useLocation, useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { createPost } from '../../actions/posts'
 import useStyles from "./styles";
@@ -16,6 +16,12 @@ const Form = () => {
     const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
+    const currentId = useSelector(state => state.data.currentId);
+    const post = useSelector(state => (currentId ? state.posts.posts.find(post => post._id === currentId): null))
+
+    useEffect(() => {
+        if(post) setPostData(post)
+    }, [post])
 
     const handleSubmit = (e) => {
         e.preventDefault();

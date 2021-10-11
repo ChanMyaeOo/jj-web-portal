@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,8 +10,15 @@ import Home from './pages/home/Home'
 import LivingLocation from './pages/living-location/LivingLocation';
 import Form from './components/form/Form'
 import './style.css'
+import { useDispatch } from 'react-redux'
+import { getPosts } from './actions/posts'
 
 const App = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [dispatch])
     return (
         <>
             <Router>

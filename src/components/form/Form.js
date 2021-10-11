@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { createPost } from '../../actions/posts'
@@ -14,11 +14,13 @@ const Form = () => {
     })
     const classes = useStyles();
     const location = useLocation();
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createPost(postData))
+        history.push(location.redirectPathname)
     }
 
     return (

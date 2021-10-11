@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import useStyles from "./styles";
@@ -10,9 +10,13 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { useLocation } from 'react-router-dom'
+
+import Posts from '../posts/Posts'
 
 const Preview = ({ imgUrl, title }) => {
     const classes = useStyles();
+    const location = useLocation();
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
@@ -26,7 +30,8 @@ const Preview = ({ imgUrl, title }) => {
                     <Link to={{
                         pathname: '/form',
                         imgUrl,
-                        title
+                        title,
+                        redirectPathname: location.pathname
                     }}>writing</Link>
                 </div>
 
@@ -56,7 +61,8 @@ const Preview = ({ imgUrl, title }) => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                    <TableRow >
+                                    <Posts />
+                                    {/* <TableRow >
                                         <TableCell component="th" scope="row">
                                             100
                                         </TableCell>
@@ -72,7 +78,7 @@ const Preview = ({ imgUrl, title }) => {
                                         <TableCell align="center">
                                             7-10-2021
                                         </TableCell>
-                                    </TableRow>
+                                    </TableRow> */}
                             </TableBody>
                         </Table>
                     </TableContainer>

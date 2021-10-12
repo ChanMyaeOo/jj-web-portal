@@ -10,16 +10,17 @@ import Home from './pages/home/Home'
 import LivingLocation from './pages/living-location/LivingLocation';
 import Form from './components/form/Form'
 import './style.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getPosts } from './actions/posts'
 import PostDetails from './components/post-details/PostDetails'
 
 const App = () => {
     const dispatch = useDispatch()
+    const { currentId } = useSelector(state => state.data)
 
     useEffect(() => {
         dispatch(getPosts())
-    }, [dispatch])
+    }, [currentId, dispatch])
     return (
         <>
             <Router>

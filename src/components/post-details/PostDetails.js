@@ -16,7 +16,8 @@ const PostDetails = () => {
     const history = useHistory();
     const classes = useStyles();
     const { currentId } = useSelector((state) => state.data)
-    console.log(currentId)
+    // console.log(currentId)
+    console.log('Post details location ', location)
 
     useEffect(() => {
         dispatch(getPost(id));
@@ -28,6 +29,7 @@ const PostDetails = () => {
             pathname: '/form',
             imgUrl: location.imgUrl,
             title: location.title,
+            redirectPathname: location.redirectPathname
         })
     }
 

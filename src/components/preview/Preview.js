@@ -17,6 +17,7 @@ import Posts from '../posts/Posts'
 const Preview = ({ imgUrl, title }) => {
     const classes = useStyles();
     const location = useLocation();
+    console.log('Preview location', location)
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
@@ -61,7 +62,7 @@ const Preview = ({ imgUrl, title }) => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                    <Posts imgUrl={imgUrl} title={title}/>
+                                    <Posts imgUrl={imgUrl} title={title} redirectPathname={location.pathname}/>
                                     {/* <TableRow >
                                         <TableCell component="th" scope="row">
                                             100

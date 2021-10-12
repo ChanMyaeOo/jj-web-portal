@@ -3,15 +3,17 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import { useHistory } from 'react-router-dom'
 
-const Post = ({ post, imgUrl, title }) => {
+const Post = ({ post, imgUrl, title, redirectPathname }) => {
     const history = useHistory()
     const openPost = () => {   
         history.push({
             pathname: `/posts/${post._id}`,
             imgUrl,
-            title
+            title,
+            redirectPathname
         })
     }
+    console.log('Post location ', redirectPathname)
     return (
         <TableRow>
             <TableCell component="th" scope="row">

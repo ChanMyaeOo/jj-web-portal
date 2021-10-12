@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getPost } from "../../actions/posts";
+import { getPost, deletePost } from "../../actions/posts";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 import useStyles from "./styles";
@@ -47,7 +47,12 @@ const PostDetails = () => {
                         <p>{post.message}</p>
                         <div className={classes.btnWrapper}>
                             <button onClick={editPost}>Edit</button>
-                            <button>Delete</button>
+                            <button onClick={() => {
+                                dispatch(deletePost(post._id))
+                                history.push({
+                                    pathname: location.redirectPathname
+                                })
+                            }}>Delete</button>
                         </div>
                     </>
                 )}

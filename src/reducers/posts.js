@@ -4,9 +4,10 @@ import {
     FETCH_POST,
     UPDATE,
     DELETE,
+    GET_LIVING_LOCATION_POSTS
 } from "../constants/actionTypes";
 
-export default (state = { posts: [] }, action) => {
+export default (state = { posts: [], livingLocationPosts: [] }, action) => {
     switch (action.type) {
         case CREATE:
             return {
@@ -34,6 +35,11 @@ export default (state = { posts: [] }, action) => {
                     (post) => post._id !== action.payload
                 ),
             };
+        case GET_LIVING_LOCATION_POSTS:
+            return {
+                ...state,
+                livingLocationPosts: action.payload
+            }
         default:
             return state;
     }

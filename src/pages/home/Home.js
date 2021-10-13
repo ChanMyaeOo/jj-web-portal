@@ -46,18 +46,77 @@ const Home = () => {
                     </div>
                 </Carousel>
                 <div className={classes.postsWrapper}>
-                    <div>
-                        <h5>Latest Posts</h5>
+                    <div className={classes.storyContainer}>
+                        <div className={classes.postTitle}>
+                            <h5>Story</h5>
+                            <div>+</div>
+                        </div>
+                        <ul className={classes.postListWrapper}>
                         {livingLocationPosts.map((post) => (
-                            <div
+                            <li
                                 key={post._id}
                                 onClick={() => openPost(post._id)}
+                                className={classes.postList}
                             >
                                 {post.title}
-                            </div>
+                            </li>
                         ))}
+                        </ul>
                     </div>
-                    <div>Notice</div>
+                    <div className={classes.storyContainer}>
+                        <div className={classes.postTitle}>
+                            <h5>Notice</h5>
+                            <div>+</div>
+                        </div>
+                        <ul className={classes.postListWrapper}>
+                        {livingLocationPosts.map((post) => (
+                            <li
+                                key={post._id}
+                                onClick={() => openPost(post._id)}
+                                className={classes.postList}
+                            >
+                                {post.title}
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className={classes.postsWrapper}>
+                    <div className={classes.storyContainer}>
+                        <div className={classes.postTitle}>
+                            <h5>Buy and Sell</h5>
+                            <div>+</div>
+                        </div>
+                        <ul className={classes.postListWrapper}>
+                        {livingLocationPosts.map((post) => (
+                            <li
+                                key={post._id}
+                                onClick={() => openPost(post._id)}
+                                className={classes.postList}
+                            >
+                                {post.title}
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
+                    <div className={classes.storyContainer}>
+                        <div className={classes.postTitle}>
+                            <h5>Job Search</h5>
+                            <div>+</div>
+                        </div>
+                        <ul className={classes.postListWrapper}>
+                        {livingLocationPosts.map((post) => (
+                            <li
+                                key={post._id}
+                                onClick={() => openPost(post._id)}
+                                className={classes.postList}
+                            >
+                                {post.title}
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
                 </div>
             </Grid>
         </Grid>

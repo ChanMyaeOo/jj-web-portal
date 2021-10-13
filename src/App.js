@@ -13,6 +13,7 @@ import './style.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts } from './actions/posts'
 import PostDetails from './components/post-details/PostDetails'
+import PhotoAlbum from './pages/photo-album/PhotoAlbum';
 
 const App = () => {
     const dispatch = useDispatch()
@@ -39,6 +40,11 @@ const App = () => {
                     <Route path="/living-location-details">
                         <Layout>
                             <LivingLocation />
+                        </Layout>
+                    </Route>
+                     <Route path="/photo-album">
+                        <Layout>
+                            <PhotoAlbum />
                         </Layout>
                     </Route>
                     <Route path="/">

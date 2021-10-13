@@ -1,8 +1,27 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+    footerWrapper: {
+        background: '#f2f2f2'
+    },
     footer: {
-        color: 'green'
+        width: '90%',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '25px 0',
+        "& > img": {
+            height: 'fit-content'
+        }
+    },
+    footerContent: {
+        display: 'flex',
+        marginBottom: '10px',
+        fontSize: '90%',
+        "& > div": {
+            marginRight: '15px'
+        }
     },
 
 
@@ -11,7 +30,12 @@ const useStyles = makeStyles((theme) => ({
         // do something
     },
     [theme.breakpoints.down('xs')]: {
-       // do something
+       footer: {
+           flexDirection: 'column',
+           "& > img": {
+               marginBottom: '20px'
+           }
+       }
     },
 }));
 

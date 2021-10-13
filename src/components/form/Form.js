@@ -32,7 +32,7 @@ const Form = () => {
         e.preventDefault();
         console.log("Form location ", location.redirectPathname);
         if (currentId === null) {
-            dispatch(createPost(postData));
+            dispatch(createPost({ ...postData, tag: location.title}));
             history.push(location.redirectPathname);
         } else {
             dispatch(updatePost(currentId, postData));
@@ -59,6 +59,7 @@ const Form = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className={classes.form}>
+                    
                     <input
                         type="text"
                         placeholder="title"

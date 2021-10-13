@@ -2,11 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     home: {
-        width: '90%',
-        margin: '0 auto'
+        width: '90% !important',
+        margin: '0 auto !important'
     },
-    postsWrapper: {
-        display: 'flex'
+    carousel: {
+        margin: '15px 0'
     }
 }));
 

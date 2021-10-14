@@ -8,4 +8,5 @@ export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updated
 export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const getLivingLocationPosts = () => API.get('/posts/living-location')
+export const getPhotoAlbumPosts = () => API.get('/posts/photo-album')
 export const fetchPosts = () => API.get('/posts')

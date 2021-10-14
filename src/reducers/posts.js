@@ -4,10 +4,16 @@ import {
     FETCH_POST,
     UPDATE,
     DELETE,
-    GET_LIVING_LOCATION_POSTS
+    GET_LIVING_LOCATION_POSTS,
+    GET_PHOTO_ALBUM_POSTS,
+    START_LOADING,
+    END_LOADING
 } from "../constants/actionTypes";
 
-export default (state = { posts: [], livingLocationPosts: [] }, action) => {
+export default (
+    state = { posts: [], isLoading: true, livingLocationPosts: [], photoAlbumPosts: [] },
+    action
+) => {
     switch (action.type) {
         case CREATE:
             return {
@@ -38,8 +44,17 @@ export default (state = { posts: [], livingLocationPosts: [] }, action) => {
         case GET_LIVING_LOCATION_POSTS:
             return {
                 ...state,
-                livingLocationPosts: action.payload
-            }
+                livingLocationPosts: action.payload,
+            };
+        case GET_PHOTO_ALBUM_POSTS:
+            return {
+                ...state,
+                photoAlbumPosts: action.payload,
+            };
+        case START_LOADING:
+            return { ...state, isLoading: true };
+        case END_LOADING:
+            return { ...state, isLoading: false };
         default:
             return state;
     }

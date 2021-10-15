@@ -8,19 +8,18 @@ import {
     GET_PHOTO_ALBUM_POSTS,
     START_LOADING,
     END_LOADING,
+    GET_NOTICE_POSTS
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
 export const createPost = (post) => async (dispatch) => {
     try {
-        dispatch({ type: START_LOADING });
         const { data } = await api.createPost(post);
         dispatch({
             type: CREATE,
             payload: data,
         });
 
-        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
     }
@@ -82,6 +81,17 @@ export const getPhotoAlbumPosts = () => async (dispatch) => {
         dispatch({ type: START_LOADING });
         const { data } = await api.getPhotoAlbumPosts();
         dispatch({ type: GET_PHOTO_ALBUM_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getNoticePosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getNoticePosts();
+        dispatch({ type: GET_NOTICE_POSTS, payload: data });
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

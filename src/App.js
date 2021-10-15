@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, getPhotoAlbumPosts } from './actions/posts'
 import PostDetails from './components/post-details/PostDetails'
 import PhotoAlbum from './pages/photo-album/PhotoAlbum';
+import Notice from './pages/notice/Notice'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -46,6 +47,11 @@ const App = () => {
                      <Route path="/photo-album">
                         <Layout>
                             <PhotoAlbum />
+                        </Layout>
+                    </Route>
+                    <Route path="/notice">
+                        <Layout>
+                            <Notice />
                         </Layout>
                     </Route>
                     <Route path="/">

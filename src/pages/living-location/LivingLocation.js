@@ -7,7 +7,7 @@ const LivingLocation = () => {
     const classes = useStyles()
     return (
         <div>
-            <Preview imgUrl={LivLocImg} title="Living/Location" />
+            <Preview imgUrl={LivLocImg} title="Living/Location" showLivingLocation={true} />
         </div>
     )
 }

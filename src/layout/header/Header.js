@@ -53,7 +53,7 @@ const Header = () => {
                             <p>british story</p>
                             <ul className={classes.innerHeaderContent}>
                                <Link to="/photo-album"><li>Photo Album</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/notice"><li>Notice</li></Link>
                                 <Link to="/living-location-details"><li>Test</li></Link>
                                 <Link to="/living-location-details"><li>Test</li></Link>
                                 <Link to="/living-location-details"><li>Test</li></Link>

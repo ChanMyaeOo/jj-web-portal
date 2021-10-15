@@ -6,12 +6,19 @@ import {
     DELETE,
     GET_LIVING_LOCATION_POSTS,
     GET_PHOTO_ALBUM_POSTS,
+    GET_NOTICE_POSTS,
     START_LOADING,
-    END_LOADING
+    END_LOADING,
 } from "../constants/actionTypes";
 
 export default (
-    state = { posts: [], isLoading: true, livingLocationPosts: [], photoAlbumPosts: [] },
+    state = {
+        posts: [],
+        isLoading: true,
+        livingLocationPosts: [],
+        photoAlbumPosts: [],
+        noticePosts: []
+    },
     action
 ) => {
     switch (action.type) {
@@ -51,6 +58,12 @@ export default (
                 ...state,
                 photoAlbumPosts: action.payload,
             };
+        case GET_NOTICE_POSTS:
+            return {
+                ...state,
+                noticePosts: action.payload,
+            };
+
         case START_LOADING:
             return { ...state, isLoading: true };
         case END_LOADING:

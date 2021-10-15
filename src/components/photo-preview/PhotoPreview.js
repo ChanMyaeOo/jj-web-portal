@@ -57,6 +57,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
                     </Link>
                 </div>
 
+                
                 {isLoading ? (
                     <CircularProgress style={{ marginTop: '20px'}}/>
                 ) : (

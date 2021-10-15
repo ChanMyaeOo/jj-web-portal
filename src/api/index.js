@@ -9,4 +9,5 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const getLivingLocationPosts = () => API.get('/posts/living-location')
 export const getPhotoAlbumPosts = () => API.get('/posts/photo-album')
+export const getNoticePosts = () => API.get('/posts/notice')
 export const fetchPosts = () => API.get('/posts')

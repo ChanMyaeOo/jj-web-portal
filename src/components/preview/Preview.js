@@ -13,8 +13,9 @@ import Paper from "@material-ui/core/Paper";
 import { useLocation } from 'react-router-dom'
 
 import Posts from '../posts/Posts'
+import NoticePosts from '../posts/NoticePosts'
 
-const Preview = ({ imgUrl, title }) => {
+const Preview = ({ imgUrl, title, showLivingLocation, showNotice }) => {
     const classes = useStyles();
     const location = useLocation();
     console.log('Preview location', location)
@@ -62,7 +63,14 @@ const Preview = ({ imgUrl, title }) => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                    <Posts imgUrl={imgUrl} title={title} redirectPathname={location.pathname}/>
+                                    {
+                                        showLivingLocation && <Posts imgUrl={imgUrl} title={title} redirectPathname={location.pathname}/>
+                                    }
+
+                                    {
+                                       showNotice &&  <NoticePosts imgUrl={imgUrl} title={title} redirectPathname={location.pathname}/>
+                                    }
+                                    
                                     {/* <TableRow >
                                         <TableCell component="th" scope="row">
                                             100

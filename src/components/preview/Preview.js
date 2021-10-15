@@ -15,6 +15,7 @@ import { useLocation } from "react-router-dom";
 import Posts from "../posts/Posts";
 import NoticePosts from "../posts/NoticePosts";
 import BuySellPosts from "../posts/BuySellPosts";
+import JobSearchPosts from '../posts/JobSearchPosts'
 
 const Preview = ({
     imgUrl,
@@ -22,6 +23,7 @@ const Preview = ({
     showLivingLocation,
     showNotice,
     showBuyAndSell,
+    showJobSearch,
 }) => {
     const classes = useStyles();
     const location = useLocation();
@@ -87,6 +89,16 @@ const Preview = ({
                                         redirectPathname={location.pathname}
                                     />
                                 )}
+
+                                {showJobSearch && (
+                                    <JobSearchPosts
+                                        imgUrl={imgUrl}
+                                        title={title}
+                                        redirectPathname={location.pathname}
+                                    />
+                                )}
+
+
                             </TableBody>
                         </Table>
                     </TableContainer>

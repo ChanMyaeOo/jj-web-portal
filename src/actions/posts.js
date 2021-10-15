@@ -9,7 +9,8 @@ import {
     START_LOADING,
     END_LOADING,
     GET_NOTICE_POSTS,
-    GET_BUY_SELL_POSTS
+    GET_BUY_SELL_POSTS,
+    GET_JOB_SEARCH_POSTS
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -104,6 +105,17 @@ export const getBuySellPosts = () => async (dispatch) => {
         dispatch({ type: START_LOADING });
         const { data } = await api.getBuySellPosts();
         dispatch({ type: GET_BUY_SELL_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getJobSearchPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getJobSearchPosts();
+        dispatch({ type: GET_JOB_SEARCH_POSTS, payload: data });
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

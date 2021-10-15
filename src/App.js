@@ -16,6 +16,7 @@ import PostDetails from './components/post-details/PostDetails'
 import PhotoAlbum from './pages/photo-album/PhotoAlbum';
 import Notice from './pages/notice/Notice'
 import BuySell from './pages/buy-sell/BuySell'
+import Recruitment from './pages/recruitment/Recruitment'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -58,6 +59,11 @@ const App = () => {
                     <Route path="/buy-sell">
                         <Layout>
                             <BuySell />
+                        </Layout>
+                    </Route>
+                    <Route path="/job-search">
+                        <Layout>
+                            <Recruitment />
                         </Layout>
                     </Route>
                     <Route path="/">

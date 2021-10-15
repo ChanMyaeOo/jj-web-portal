@@ -34,7 +34,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
         dispatch(getPhotoAlbumPosts());
     }, [photoAlbumPosts.length]);
 
-    console.log(photoAlbumPosts.length);
+    console.log('Photo Preview', location);
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
@@ -58,7 +58,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
                 </div>
 
                 {isLoading ? (
-                    <CircularProgress />
+                    <CircularProgress style={{ marginTop: '20px'}}/>
                 ) : (
                     <Grid
                         container
@@ -67,7 +67,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
                     >
                         {photoAlbumPosts.map((post) => (
                             <Grid item md={4} key={post._id}>
-                                <PhotoCard imgUrl={post.selectedFile} title={post.title}/>
+                                <PhotoCard postImgUrl={post.selectedFile} postTitle={post.title} postId={post._id} redirectPathname={location.pathname} imgUrl={imgUrl} title={title}/>
                             </Grid>
                         ))}
                     </Grid>

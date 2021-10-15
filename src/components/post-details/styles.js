@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     },
     btnWrapper: {
         margin: '20px 0',
+    },
+    postDetailsImg: {
+        maxWidth: '600px'
     }
 }));
 

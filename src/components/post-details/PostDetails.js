@@ -44,6 +44,11 @@ const PostDetails = () => {
                 {post && (
                     <>
                         <h3>{post.title}</h3>
+                        {
+                            post.selectedFile && (
+                                <img src={post.selectedFile} alt="picture" className={classes.postDetailsImg} />
+                            )
+                        }
                         <p>{post.message}</p>
                         <div className={classes.btnWrapper}>
                             <button onClick={editPost}>Edit</button>

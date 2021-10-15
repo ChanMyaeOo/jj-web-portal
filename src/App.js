@@ -11,7 +11,7 @@ import LivingLocation from './pages/living-location/LivingLocation';
 import Form from './components/form/Form'
 import './style.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPosts } from './actions/posts'
+import { getPosts, getPhotoAlbumPosts } from './actions/posts'
 import PostDetails from './components/post-details/PostDetails'
 import PhotoAlbum from './pages/photo-album/PhotoAlbum';
 
@@ -21,6 +21,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(getPosts())
+        dispatch(getPhotoAlbumPosts())
     }, [currentId, dispatch])
     return (
         <>

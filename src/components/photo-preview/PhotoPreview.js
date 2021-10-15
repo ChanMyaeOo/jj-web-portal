@@ -67,7 +67,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
                     >
                         {photoAlbumPosts.map((post) => (
                             <Grid item md={4} key={post._id}>
-                                <PhotoCard imgUrl={post.selectedFile} />
+                                <PhotoCard imgUrl={post.selectedFile} title={post.title}/>
                             </Grid>
                         ))}
                     </Grid>

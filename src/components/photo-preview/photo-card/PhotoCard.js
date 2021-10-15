@@ -13,17 +13,16 @@ import {
 } from "@material-ui/core/";
 import useStyles from './styles'
 
-const PhotoCard = ({ imgUrl}) => {
+const PhotoCard = ({ imgUrl, title}) => {
     const classes = useStyles()
     return (
         <Card>
             <CardMedia
                 className={classes.media}
                 image={imgUrl}
-                title="Paella dish"
             />
             <CardContent>
-                <p>This is a title</p>
+                <p>{title}</p>
                 <p>:) Creator</p>
             </CardContent>
 

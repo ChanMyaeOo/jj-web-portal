@@ -1,10 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getPosts } from '../../actions/posts'
 import Post from './post/Post'
 
 const Posts = ({ imgUrl, title, redirectPathname }) => {
     const { posts } = useSelector((state) => state.posts);
-    console.log('Posts location', redirectPathname)
+    const dispatch = useDispatch();
+    console.log('Posts List', posts)
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [posts])
     return (
             <>
                 {posts.map((post) => (

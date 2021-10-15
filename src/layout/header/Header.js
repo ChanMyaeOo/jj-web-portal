@@ -12,14 +12,13 @@ const Header = () => {
 
     const handleOpenMenu = () => {
         const resOverlay = document.getElementById("res-overlay");
-        resOverlay.style.display = 'block'
-    }
+        resOverlay.style.display = "block";
+    };
 
     const handleCloseMenu = () => {
         const resOverlay = document.getElementById("res-overlay");
-        resOverlay.style.display = 'none'
-    }
-
+        resOverlay.style.display = "none";
+    };
 
     return (
         <div>
@@ -52,55 +51,48 @@ const Header = () => {
                         <li>
                             <p>british story</p>
                             <ul className={classes.innerHeaderContent}>
-                               <Link to="/photo-album"><li>Photo Album</li></Link>
-                                <Link to="/notice"><li>Notice</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/photo-album">
+                                    <li>Photo Album</li>
+                                </Link>
+                                <Link to="/notice">
+                                    <li>Notice</li>
+                                </Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>ask and answer</p>
                             <ul className={classes.innerHeaderContent}>
-                                <Link to="/living-location-details"><li>Living/Location</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details">
+                                    <li>Living/Location</li>
+                                </Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>buy and sell</p>
                             <ul className={classes.innerHeaderContent}>
-                               <Link to="/buy-sell"><li>Home Appliances</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/buy-sell">
+                                    <li>Home Appliances</li>
+                                </Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>job search</p>
                             <ul className={classes.innerHeaderContent}>
-                                <Link to="/job-search"><li>Recruitment/Job Search</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/job-search">
+                                    <li>Recruitment/Job Search</li>
+                                </Link>
                             </ul>
                         </li>
 
                         <li>
                             <p>lodgment</p>
                             <ul className={classes.innerHeaderContent}>
-                               <Link to="/living-location-details"><li>Living/Location</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
-                                <Link to="/living-location-details"><li>Test</li></Link>
+                                <Link to="/living-location-details">
+                                    <li>Living/Location</li>
+                                </Link>
                             </ul>
                         </li>
                     </ul>
@@ -130,7 +122,10 @@ const Header = () => {
                         alt="header logo"
                         className={classes.resHeaderLogo}
                     />
-                    <CloseIcon className={classes.resClose} onClick={handleCloseMenu} />
+                    <CloseIcon
+                        className={classes.resClose}
+                        onClick={handleCloseMenu}
+                    />
                 </div>
 
                 <ul className={classes.resHeaderContent}>

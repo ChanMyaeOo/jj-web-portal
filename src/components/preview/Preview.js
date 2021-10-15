@@ -16,6 +16,7 @@ import Posts from "../posts/Posts";
 import NoticePosts from "../posts/NoticePosts";
 import BuySellPosts from "../posts/BuySellPosts";
 import JobSearchPosts from '../posts/JobSearchPosts'
+import LivingLocationPosts from '../posts/LivingLocationPosts'
 
 const Preview = ({
     imgUrl,
@@ -67,7 +68,7 @@ const Preview = ({
                             </TableHead>
                             <TableBody>
                                 {showLivingLocation && (
-                                    <Posts
+                                    <LivingLocationPosts
                                         imgUrl={imgUrl}
                                         title={title}
                                         redirectPathname={location.pathname}

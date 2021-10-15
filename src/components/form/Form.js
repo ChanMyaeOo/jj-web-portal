@@ -34,8 +34,8 @@ const Form = () => {
         if (currentId === null) {
             dispatch(createPost({ ...postData, tag: location.title})).then(() => history.push(location.redirectPathname));
         } else {
-            dispatch(updatePost(currentId, postData));
-            history.push(location.redirectPathname);
+            dispatch(updatePost(currentId, postData)).then(() => history.push(location.redirectPathname));
+            // history.push(location.redirectPathname);
         }
         clear()
     };

@@ -8,7 +8,8 @@ import {
     GET_PHOTO_ALBUM_POSTS,
     START_LOADING,
     END_LOADING,
-    GET_NOTICE_POSTS
+    GET_NOTICE_POSTS,
+    GET_BUY_SELL_POSTS
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -92,6 +93,17 @@ export const getNoticePosts = () => async (dispatch) => {
         dispatch({ type: START_LOADING });
         const { data } = await api.getNoticePosts();
         dispatch({ type: GET_NOTICE_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getBuySellPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getBuySellPosts();
+        dispatch({ type: GET_BUY_SELL_POSTS, payload: data });
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

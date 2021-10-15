@@ -74,7 +74,7 @@ const Header = () => {
                         <li>
                             <p>buy and sell</p>
                             <ul className={classes.innerHeaderContent}>
-                               <Link to="/living-location-details"><li>Living/Location</li></Link>
+                               <Link to="/buy-sell"><li>Home Appliances</li></Link>
                                 <Link to="/living-location-details"><li>Test</li></Link>
                                 <Link to="/living-location-details"><li>Test</li></Link>
                                 <Link to="/living-location-details"><li>Test</li></Link>

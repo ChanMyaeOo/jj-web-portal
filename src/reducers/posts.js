@@ -7,6 +7,7 @@ import {
     GET_LIVING_LOCATION_POSTS,
     GET_PHOTO_ALBUM_POSTS,
     GET_NOTICE_POSTS,
+    GET_BUY_SELL_POSTS,
     START_LOADING,
     END_LOADING,
 } from "../constants/actionTypes";
@@ -17,7 +18,8 @@ export default (
         isLoading: true,
         livingLocationPosts: [],
         photoAlbumPosts: [],
-        noticePosts: []
+        noticePosts: [],
+        buySellPosts: [],
     },
     action
 ) => {
@@ -62,6 +64,11 @@ export default (
             return {
                 ...state,
                 noticePosts: action.payload,
+            };
+        case GET_BUY_SELL_POSTS:
+            return {
+                ...state,
+                buySellPosts: action.payload,
             };
 
         case START_LOADING:

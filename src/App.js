@@ -15,6 +15,7 @@ import { getPosts, getPhotoAlbumPosts } from './actions/posts'
 import PostDetails from './components/post-details/PostDetails'
 import PhotoAlbum from './pages/photo-album/PhotoAlbum';
 import Notice from './pages/notice/Notice'
+import BuySell from './pages/buy-sell/BuySell'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -52,6 +53,11 @@ const App = () => {
                     <Route path="/notice">
                         <Layout>
                             <Notice />
+                        </Layout>
+                    </Route>
+                    <Route path="/buy-sell">
+                        <Layout>
+                            <BuySell />
                         </Layout>
                     </Route>
                     <Route path="/">

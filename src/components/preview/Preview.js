@@ -10,15 +10,22 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
-import Posts from '../posts/Posts'
-import NoticePosts from '../posts/NoticePosts'
+import Posts from "../posts/Posts";
+import NoticePosts from "../posts/NoticePosts";
+import BuySellPosts from "../posts/BuySellPosts";
 
-const Preview = ({ imgUrl, title, showLivingLocation, showNotice }) => {
+const Preview = ({
+    imgUrl,
+    title,
+    showLivingLocation,
+    showNotice,
+    showBuyAndSell,
+}) => {
     const classes = useStyles();
     const location = useLocation();
-    console.log('Preview location', location)
+    console.log("Preview location", location);
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
@@ -28,13 +35,17 @@ const Preview = ({ imgUrl, title, showLivingLocation, showNotice }) => {
                 </div>
                 <div className={classes.detailsHeader}>
                     <p>Total 200 posts </p>
-                    
-                    <Link to={{
-                        pathname: '/form',
-                        imgUrl,
-                        title,
-                        redirectPathname: location.pathname
-                    }}>writing</Link>
+
+                    <Link
+                        to={{
+                            pathname: "/form",
+                            imgUrl,
+                            title,
+                            redirectPathname: location.pathname,
+                        }}
+                    >
+                        writing
+                    </Link>
                 </div>
 
                 <div className={classes.previewTable}>
@@ -45,49 +56,37 @@ const Preview = ({ imgUrl, title, showLivingLocation, showNotice }) => {
                         >
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>
-                                       number
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        title
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        writer
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        lookup
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        date
-                                    </TableCell>
+                                    <TableCell>number</TableCell>
+                                    <TableCell align="center">title</TableCell>
+                                    <TableCell align="center">writer</TableCell>
+                                    <TableCell align="center">lookup</TableCell>
+                                    <TableCell align="center">date</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                    {
-                                        showLivingLocation && <Posts imgUrl={imgUrl} title={title} redirectPathname={location.pathname}/>
-                                    }
+                                {showLivingLocation && (
+                                    <Posts
+                                        imgUrl={imgUrl}
+                                        title={title}
+                                        redirectPathname={location.pathname}
+                                    />
+                                )}
 
-                                    {
-                                       showNotice &&  <NoticePosts imgUrl={imgUrl} title={title} redirectPathname={location.pathname}/>
-                                    }
-                                    
-                                    {/* <TableRow >
-                                        <TableCell component="th" scope="row">
-                                            100
-                                        </TableCell>
-                                        <TableCell align="center" >
-                                            Can i bring food into UK?
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            Polar
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            20
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            7-10-2021
-                                        </TableCell>
-                                    </TableRow> */}
+                                {showNotice && (
+                                    <NoticePosts
+                                        imgUrl={imgUrl}
+                                        title={title}
+                                        redirectPathname={location.pathname}
+                                    />
+                                )}
+
+                                {showBuyAndSell && (
+                                    <BuySellPosts
+                                        imgUrl={imgUrl}
+                                        title={title}
+                                        redirectPathname={location.pathname}
+                                    />
+                                )}
                             </TableBody>
                         </Table>
                     </TableContainer>

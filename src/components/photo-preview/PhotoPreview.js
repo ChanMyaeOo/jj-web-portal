@@ -32,7 +32,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
 
     useEffect(() => {
         dispatch(getPhotoAlbumPosts());
-    }, [photoAlbumPosts.length]);
+    }, [posts]);
 
     console.log('Photo Preview', location);
     return (
@@ -67,7 +67,7 @@ const PhotoPreview = ({ imgUrl, title }) => {
                     >
                         {photoAlbumPosts.map((post) => (
                             <Grid item md={4} key={post._id}>
-                                <PhotoCard postImgUrl={post.selectedFile} postTitle={post.title} postId={post._id} redirectPathname={location.pathname} imgUrl={imgUrl} title={title}/>
+                                <PhotoCard showDetails={true} postImgUrl={post.selectedFile} postTitle={post.title} postId={post._id} redirectPathname={location.pathname} imgUrl={imgUrl} title={title}/>
                             </Grid>
                         ))}
                     </Grid>

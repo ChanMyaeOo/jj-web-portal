@@ -11,34 +11,44 @@ import {
     Typography,
     Avatar,
 } from "@material-ui/core/";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import useStyles from "./styles";
 
-const PhotoCard = ({ postImgUrl, postTitle, postId, redirectPathname, imgUrl, title }) => {
+const PhotoCard = ({
+    postImgUrl,
+    postTitle,
+    postId,
+    redirectPathname,
+    imgUrl,
+    title,
+    showDetails,
+}) => {
     const classes = useStyles();
     const history = useHistory();
 
     const openPost = () => {
-         history.push({
+        history.push({
             pathname: `/posts/${postId}`,
             imgUrl,
             title,
-            redirectPathname
-        })
-    }
+            redirectPathname,
+        });
+    };
     return (
-        <Card onClick={openPost}>
-                <CardMedia className={classes.media} image={postImgUrl} />
-                <CardContent>
-                    <p>{postTitle}</p>
-                    <p>:) Creator</p>
-                </CardContent>
+        <Card onClick={openPost} style={{ margin: '10px'}}>
+            <CardMedia className={classes.media} image={postImgUrl} />
+            <CardContent>
+                <p>{postTitle}</p>
+                {showDetails && <p>:) Creator</p>}
+            </CardContent>
 
+            {showDetails && (
                 <CardActions disableSpacing>
                     <div>289</div>
                     <div>2 Likes</div>
                     <div>Time</div>
                 </CardActions>
+            )}
         </Card>
     );
 };

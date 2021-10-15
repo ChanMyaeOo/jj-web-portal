@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
         border: '1px solid #ddd',
         width: '49%',
     },
+    photoAlbumContainer: {
+        border: '1px solid #ddd',
+        width: '100%'
+    },
     noticeContainer: {
         border: '1px solid #ddd',
         width: '49%'
@@ -41,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
             cursor: 'pointer',
             textDecoration: 'underline'
         }
+    },
+    photoContainer: {
+        marginTop: '20px'
     }
 
 }));

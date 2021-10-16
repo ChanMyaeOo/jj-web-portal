@@ -9,6 +9,9 @@ import {
     GET_NOTICE_POSTS,
     GET_BUY_SELL_POSTS,
     GET_JOB_SEARCH_POSTS,
+    GET_NOTICE_LATEST_POSTS,
+    GET_PHOTO_ALBUM_LATEST_POSTS,
+    GET_BUY_SELL_LATEST_POSTS,
     START_LOADING,
     END_LOADING,
 } from "../constants/actionTypes";
@@ -21,7 +24,10 @@ export default (
         photoAlbumPosts: [],
         noticePosts: [],
         buySellPosts: [],
-        jobSearchPosts: []
+        jobSearchPosts: [],
+        noticeLatestPosts: [],
+        photoAlbumLatestPosts: [],
+        buySellLatestPosts: []
     },
     action
 ) => {
@@ -62,6 +68,11 @@ export default (
                 ...state,
                 photoAlbumPosts: action.payload,
             };
+        case GET_PHOTO_ALBUM_LATEST_POSTS:
+            return {
+                ...state,
+                photoAlbumLatestPosts: action.payload,
+            };
         case GET_NOTICE_POSTS:
             return {
                 ...state,
@@ -72,10 +83,21 @@ export default (
                 ...state,
                 buySellPosts: action.payload,
             };
+         case GET_BUY_SELL_LATEST_POSTS:
+            return {
+                ...state,
+                buySellLatestPosts: action.payload,
+            };
         case GET_JOB_SEARCH_POSTS:
             return {
                 ...state,
                 jobSearchPosts: action.payload,
+            };
+
+        case GET_NOTICE_LATEST_POSTS:
+            return {
+                ...state,
+                noticeLatestPosts: action.payload,
             };
 
         case START_LOADING:

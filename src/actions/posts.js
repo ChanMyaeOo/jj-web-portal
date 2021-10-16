@@ -10,7 +10,10 @@ import {
     END_LOADING,
     GET_NOTICE_POSTS,
     GET_BUY_SELL_POSTS,
-    GET_JOB_SEARCH_POSTS
+    GET_JOB_SEARCH_POSTS,
+    GET_NOTICE_LATEST_POSTS,
+    GET_PHOTO_ALBUM_LATEST_POSTS,
+    GET_BUY_SELL_LATEST_POSTS
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -29,11 +32,13 @@ export const createPost = (post) => async (dispatch) => {
 
 export const getPosts = () => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         const { data } = await api.fetchPosts();
         dispatch({
             type: FETCH_ALL,
             payload: data,
         });
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
     }
@@ -89,6 +94,17 @@ export const getPhotoAlbumPosts = () => async (dispatch) => {
     }
 };
 
+export const getPhotoAlbumLatestPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getPhotoAlbumLatestPosts();
+        dispatch({ type: GET_PHOTO_ALBUM_LATEST_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getNoticePosts = () => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
@@ -100,11 +116,33 @@ export const getNoticePosts = () => async (dispatch) => {
     }
 };
 
+export const getNoticeLatestPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getNoticeLatestPosts();
+        dispatch({ type: GET_NOTICE_LATEST_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getBuySellPosts = () => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
         const { data } = await api.getBuySellPosts();
         dispatch({ type: GET_BUY_SELL_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getBuySellLatestPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getBuySellLatestPosts();
+        dispatch({ type: GET_BUY_SELL_LATEST_POSTS, payload: data });
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

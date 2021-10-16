@@ -9,7 +9,10 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const getLivingLocationPosts = () => API.get('/posts/living-location')
 export const getPhotoAlbumPosts = () => API.get('/posts/photo-album')
+export const getPhotoAlbumLatestPosts = () => API.get('/posts/photo-album-latest')
 export const getNoticePosts = () => API.get('/posts/notice')
+export const getNoticeLatestPosts = () => API.get('/posts/notice-latest')
 export const getBuySellPosts = () => API.get('/posts/buy-sell')
+export const getBuySellLatestPosts = () => API.get('/posts/buy-sell-latest')
 export const getJobSearchPosts = () => API.get('/posts/job-search')
 export const fetchPosts = () => API.get('/posts')

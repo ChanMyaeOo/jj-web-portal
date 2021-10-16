@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import useStyles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
-import { getLivingLocationPosts } from "../../actions/posts";
-import { Grid } from "@material-ui/core";
+import { Grid, CircularProgress } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -10,19 +9,39 @@ import LivImg from "../../images/liv-loc.png";
 import CaroImg1 from "../../images/car1.jpg";
 import CaroImg2 from "../../images/car2.jpg";
 import CaroImg3 from "../../images/car3.jpg";
-import { getPhotoAlbumPosts } from '../../actions/posts';
-import PhotoCard from '../../components/photo-preview/photo-card/PhotoCard'
-import PhotoAlbumImg from '../../images/photo-album.png'
+import {
+    getPosts,
+    getPhotoAlbumPosts,
+    getLivingLocationPosts,
+    getNoticeLatestPosts,
+    getPhotoAlbumLatestPosts,
+    getBuySellLatestPosts
+} from "../../actions/posts";
+import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
+import PhotoAlbumImg from "../../images/photo-album.png";
 
 const Home = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const { livingLocationPosts, photoAlbumPosts } = useSelector((state) => state.posts);
+    const {
+        isLoading,
+        livingLocationPosts,
+        photoAlbumPosts,
+        posts,
+        noticeLatestPosts,
+        photoAlbumLatestPosts,
+        buySellLatestPosts,
+    } = useSelector((state) => state.posts);
     const history = useHistory();
+
+    console.log("Notice latest posts", noticeLatestPosts);
 
     useEffect(() => {
         dispatch(getLivingLocationPosts());
-        dispatch(getPhotoAlbumPosts())
+        dispatch(getPhotoAlbumPosts());
+        dispatch(getNoticeLatestPosts());
+        dispatch(getPhotoAlbumLatestPosts());
+        dispatch(getBuySellLatestPosts())
     }, []);
     console.log("Home page", livingLocationPosts);
 
@@ -57,11 +76,11 @@ const Home = () => {
                 <div className={classes.postsWrapper}>
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
-                            <h5>Story</h5>
-                            <div>+</div>
+                            <h5>Latest Posts</h5>
                         </div>
+                        
                         <ul className={classes.postListWrapper}>
-                            {livingLocationPosts.map((post) => (
+                            {posts.map((post) => (
                                 <li
                                     key={post._id}
                                     onClick={() => openPost(post._id)}
@@ -78,7 +97,7 @@ const Home = () => {
                             <div>+</div>
                         </div>
                         <ul className={classes.postListWrapper}>
-                            {livingLocationPosts.map((post) => (
+                            {noticeLatestPosts.map((post) => (
                                 <li
                                     key={post._id}
                                     onClick={() => openPost(post._id)}
@@ -97,25 +116,28 @@ const Home = () => {
                             <h5>Photo Album</h5>
                             <div>+</div>
                         </div>
-
-                        <Grid
-                            container
-                            spacing={3}
-                            className={classes.photoContainer}
-                        >
-                            {photoAlbumPosts.map((post) => (
-                                <Grid item md={3} key={post._id}>
-                                    <PhotoCard
-                                        postImgUrl={post.selectedFile}
-                                        postTitle={post.title}
-                                        postId={post._id}
-                                        redirectPathname="/photo-album"
-                                        imgUrl={PhotoAlbumImg}
-                                        title="Photo Album"
-                                    />
-                                </Grid>
-                            ))}
-                        </Grid>
+                        {isLoading ? (
+                            <CircularProgress />
+                        ) : (
+                            <Grid
+                                container
+                                spacing={3}
+                                className={classes.photoContainer}
+                            >
+                                {photoAlbumLatestPosts.map((post) => (
+                                    <Grid item md={4} key={post._id}>
+                                        <PhotoCard
+                                            postImgUrl={post.selectedFile}
+                                            postTitle={post.title}
+                                            postId={post._id}
+                                            redirectPathname="/photo-album"
+                                            imgUrl={PhotoAlbumImg}
+                                            title="Photo Album"
+                                        />
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        )}
                     </div>
                 </div>
 
@@ -126,7 +148,7 @@ const Home = () => {
                             <div>+</div>
                         </div>
                         <ul className={classes.postListWrapper}>
-                            {livingLocationPosts.map((post) => (
+                            {buySellLatestPosts.map((post) => (
                                 <li
                                     key={post._id}
                                     onClick={() => openPost(post._id)}

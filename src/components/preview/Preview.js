@@ -15,8 +15,8 @@ import { useLocation } from "react-router-dom";
 import Posts from "../posts/Posts";
 import NoticePosts from "../posts/NoticePosts";
 import BuySellPosts from "../posts/BuySellPosts";
-import JobSearchPosts from '../posts/JobSearchPosts'
-import LivingLocationPosts from '../posts/LivingLocationPosts'
+import JobSearchPosts from "../posts/JobSearchPosts";
+import LivingLocationPosts from "../posts/LivingLocationPosts";
 
 const Preview = ({
     imgUrl,
@@ -25,6 +25,7 @@ const Preview = ({
     showNotice,
     showBuyAndSell,
     showJobSearch,
+    hideLogo = true,
 }) => {
     const classes = useStyles();
     const location = useLocation();
@@ -32,10 +33,15 @@ const Preview = ({
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
-                <div className={classes.logoWrapper}>
-                    <img src={imgUrl} alt="logo" />
-                    <span>{title}</span>
-                </div>
+                {hideLogo ? (
+                    <>
+                        <div className={classes.logoWrapper}>
+                            <img src={imgUrl} alt="logo" />
+                            <span>{title}</span>
+                        </div>
+                    </>
+                ) : null}
+
                 <div className={classes.detailsHeader}>
                     <p>Total 200 posts </p>
 
@@ -98,15 +104,13 @@ const Preview = ({
                                         redirectPathname={location.pathname}
                                     />
                                 )}
-
-
                             </TableBody>
                         </Table>
                     </TableContainer>
                 </div>
             </Grid>
             <Grid item lg={3} md={3}>
-                Right Side
+                {/* Right Side */}
             </Grid>
         </Grid>
     );

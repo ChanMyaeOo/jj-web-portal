@@ -20,6 +20,7 @@ import {
 } from "../../actions/posts";
 import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
 import PhotoAlbumImg from "../../images/photo-album.png";
+import NoticeImg from "../../images/notice.png";
 
 const Home = () => {
     const classes = useStyles();
@@ -48,13 +49,17 @@ const Home = () => {
     }, []);
     console.log("Home page", livingLocationPosts);
 
-    const openPost = (id) => {
-        history.push({
-            pathname: `/posts/${id}`,
-            imgUrl: LivImg,
-            title: "Living/Location",
-            redirectPathname: "/living-location-details",
-        });
+    const openPost = (id, postTag) => {
+        if (postTag === "Notice") {
+            history.push({
+                pathname: `/posts/${id}`,
+                imgUrl: NoticeImg,
+                title: "Notice",
+                redirectPathname: "/notice",
+            });
+        } else if(postTag === "Photo Album") {
+            
+        }
     };
 
     return (
@@ -100,7 +105,9 @@ const Home = () => {
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Notice</h5>
-                            <div><Link to="/notice">+</Link></div>
+                            <div>
+                                <Link to="/notice">+</Link>
+                            </div>
                         </div>
                         {noticeLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />
@@ -109,7 +116,9 @@ const Home = () => {
                                 {noticeLatestPosts.map((post) => (
                                     <li
                                         key={post._id}
-                                        onClick={() => openPost(post._id)}
+                                        onClick={() =>
+                                            openPost(post._id, post.tag)
+                                        }
                                         className={classes.postList}
                                     >
                                         {post.title}
@@ -124,7 +133,9 @@ const Home = () => {
                     <div className={classes.photoAlbumContainer}>
                         <div className={classes.postTitle}>
                             <h5>Photo Album</h5>
-                            <div><Link to="/photo-album">+</Link></div>
+                            <div>
+                                <Link to="/photo-album">+</Link>
+                            </div>
                         </div>
                         {photoAlbumLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />
@@ -155,7 +166,9 @@ const Home = () => {
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Buy and Sell</h5>
-                            <div><Link to="buy-sell">+</Link></div>
+                            <div>
+                                <Link to="buy-sell">+</Link>
+                            </div>
                         </div>
                         {buySellLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />
@@ -176,7 +189,9 @@ const Home = () => {
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Job Search</h5>
-                            <div><Link to="/job-search">+</Link></div>
+                            <div>
+                                <Link to="/job-search">+</Link>
+                            </div>
                         </div>
                         {jobSearchLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />

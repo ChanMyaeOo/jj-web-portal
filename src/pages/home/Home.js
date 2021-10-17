@@ -15,7 +15,8 @@ import {
     getLivingLocationPosts,
     getNoticeLatestPosts,
     getPhotoAlbumLatestPosts,
-    getBuySellLatestPosts
+    getBuySellLatestPosts,
+    getJobSearchLatestPosts,
 } from "../../actions/posts";
 import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
 import PhotoAlbumImg from "../../images/photo-album.png";
@@ -31,17 +32,19 @@ const Home = () => {
         noticeLatestPosts,
         photoAlbumLatestPosts,
         buySellLatestPosts,
+        jobSearchLatestPosts,
     } = useSelector((state) => state.posts);
     const history = useHistory();
 
     console.log("Notice latest posts", noticeLatestPosts);
 
     useEffect(() => {
-        dispatch(getLivingLocationPosts());
         dispatch(getPhotoAlbumPosts());
         dispatch(getNoticeLatestPosts());
         dispatch(getPhotoAlbumLatestPosts());
-        dispatch(getBuySellLatestPosts())
+        dispatch(getBuySellLatestPosts());
+        dispatch(getJobSearchLatestPosts());
+        dispatch(getLivingLocationPosts());
     }, []);
     console.log("Home page", livingLocationPosts);
 
@@ -78,35 +81,42 @@ const Home = () => {
                         <div className={classes.postTitle}>
                             <h5>Latest Posts</h5>
                         </div>
-                        
-                        <ul className={classes.postListWrapper}>
-                            {posts.map((post) => (
-                                <li
-                                    key={post._id}
-                                    onClick={() => openPost(post._id)}
-                                    className={classes.postList}
-                                >
-                                    {post.title}
-                                </li>
-                            ))}
-                        </ul>
+                        {posts.length === 0 ? (
+                            <CircularProgress style={{ margin: "20px" }} />
+                        ) : (
+                            <ul className={classes.postListWrapper}>
+                                {posts.map((post) => (
+                                    <li
+                                        key={post._id}
+                                        onClick={() => openPost(post._id)}
+                                        className={classes.postList}
+                                    >
+                                        {post.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Notice</h5>
                             <div>+</div>
                         </div>
-                        <ul className={classes.postListWrapper}>
-                            {noticeLatestPosts.map((post) => (
-                                <li
-                                    key={post._id}
-                                    onClick={() => openPost(post._id)}
-                                    className={classes.postList}
-                                >
-                                    {post.title}
-                                </li>
-                            ))}
-                        </ul>
+                        {noticeLatestPosts.length === 0 ? (
+                            <CircularProgress style={{ margin: "20px" }} />
+                        ) : (
+                            <ul className={classes.postListWrapper}>
+                                {noticeLatestPosts.map((post) => (
+                                    <li
+                                        key={post._id}
+                                        onClick={() => openPost(post._id)}
+                                        className={classes.postList}
+                                    >
+                                        {post.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
 
@@ -116,8 +126,8 @@ const Home = () => {
                             <h5>Photo Album</h5>
                             <div>+</div>
                         </div>
-                        {isLoading ? (
-                            <CircularProgress />
+                        {photoAlbumLatestPosts.length === 0 ? (
+                            <CircularProgress style={{ margin: "20px" }} />
                         ) : (
                             <Grid
                                 container
@@ -147,34 +157,42 @@ const Home = () => {
                             <h5>Buy and Sell</h5>
                             <div>+</div>
                         </div>
-                        <ul className={classes.postListWrapper}>
-                            {buySellLatestPosts.map((post) => (
-                                <li
-                                    key={post._id}
-                                    onClick={() => openPost(post._id)}
-                                    className={classes.postList}
-                                >
-                                    {post.title}
-                                </li>
-                            ))}
-                        </ul>
+                        {buySellLatestPosts.length === 0 ? (
+                            <CircularProgress style={{ margin: "20px" }} />
+                        ) : (
+                            <ul className={classes.postListWrapper}>
+                                {buySellLatestPosts.map((post) => (
+                                    <li
+                                        key={post._id}
+                                        onClick={() => openPost(post._id)}
+                                        className={classes.postList}
+                                    >
+                                        {post.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Job Search</h5>
                             <div>+</div>
                         </div>
-                        <ul className={classes.postListWrapper}>
-                            {livingLocationPosts.map((post) => (
-                                <li
-                                    key={post._id}
-                                    onClick={() => openPost(post._id)}
-                                    className={classes.postList}
-                                >
-                                    {post.title}
-                                </li>
-                            ))}
-                        </ul>
+                        {jobSearchLatestPosts.length === 0 ? (
+                            <CircularProgress style={{ margin: "20px" }} />
+                        ) : (
+                            <ul className={classes.postListWrapper}>
+                                {jobSearchLatestPosts.map((post) => (
+                                    <li
+                                        key={post._id}
+                                        onClick={() => openPost(post._id)}
+                                        className={classes.postList}
+                                    >
+                                        {post.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
             </Grid>

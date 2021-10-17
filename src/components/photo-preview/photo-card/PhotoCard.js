@@ -44,9 +44,8 @@ const PhotoCard = ({
 
             {showDetails && (
                 <CardActions disableSpacing>
-                    <div>289</div>
+                    <div>3</div>
                     <div>2 Likes</div>
-                    <div>Time</div>
                 </CardActions>
             )}
         </Card>

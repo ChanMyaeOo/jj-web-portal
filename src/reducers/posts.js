@@ -9,6 +9,7 @@ import {
     GET_NOTICE_POSTS,
     GET_BUY_SELL_POSTS,
     GET_JOB_SEARCH_POSTS,
+    GET_JOB_SEARCH_LATEST_POSTS,
     GET_NOTICE_LATEST_POSTS,
     GET_PHOTO_ALBUM_LATEST_POSTS,
     GET_BUY_SELL_LATEST_POSTS,
@@ -27,7 +28,8 @@ export default (
         jobSearchPosts: [],
         noticeLatestPosts: [],
         photoAlbumLatestPosts: [],
-        buySellLatestPosts: []
+        buySellLatestPosts: [],
+        jobSearchLatestPosts: [],
     },
     action
 ) => {
@@ -83,7 +85,7 @@ export default (
                 ...state,
                 buySellPosts: action.payload,
             };
-         case GET_BUY_SELL_LATEST_POSTS:
+        case GET_BUY_SELL_LATEST_POSTS:
             return {
                 ...state,
                 buySellLatestPosts: action.payload,
@@ -92,6 +94,11 @@ export default (
             return {
                 ...state,
                 jobSearchPosts: action.payload,
+            };
+        case GET_JOB_SEARCH_LATEST_POSTS:
+            return {
+                ...state,
+                jobSearchLatestPosts: action.payload,
             };
 
         case GET_NOTICE_LATEST_POSTS:

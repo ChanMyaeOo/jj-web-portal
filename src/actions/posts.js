@@ -13,7 +13,8 @@ import {
     GET_JOB_SEARCH_POSTS,
     GET_NOTICE_LATEST_POSTS,
     GET_PHOTO_ALBUM_LATEST_POSTS,
-    GET_BUY_SELL_LATEST_POSTS
+    GET_BUY_SELL_LATEST_POSTS,
+    GET_JOB_SEARCH_LATEST_POSTS
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -154,6 +155,17 @@ export const getJobSearchPosts = () => async (dispatch) => {
         dispatch({ type: START_LOADING });
         const { data } = await api.getJobSearchPosts();
         dispatch({ type: GET_JOB_SEARCH_POSTS, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getJobSearchLatestPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getJobSearchLatestPosts();
+        dispatch({ type: GET_JOB_SEARCH_LATEST_POSTS, payload: data });
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

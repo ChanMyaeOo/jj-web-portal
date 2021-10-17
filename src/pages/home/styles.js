@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
         padding: '5px',
         "& > h5": {
             fontSize: '16px'
+        },
+        "& > div > a": {
+            textDecoration: 'none'
         }
     },
     storyContainer: {

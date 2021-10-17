@@ -2,8 +2,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     footerWrapper: {
-        background: '#f2f2f2',
-        marginTop: '20px'
+        background: '#f4f4f4',
+        marginTop: '20px',
+        borderTop: '1px solid #ddd'
     },
     footer: {
         width: '90%',
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '25px 0',
+        padding: '45px 0',
         "& > img": {
             height: 'fit-content'
         }

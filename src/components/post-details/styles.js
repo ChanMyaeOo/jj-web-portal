@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
         margin: '20px 0',
     },
     postDetailsImg: {
-        maxWidth: '600px'
+        maxWidth: '600px',
+        margin: '25px 0'
     }
 }));
 

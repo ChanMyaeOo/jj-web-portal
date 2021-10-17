@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import useStyles from "./styles";
 import FooterLogo from "../../images/footer.png";
 
@@ -7,7 +8,7 @@ const Footer = () => {
     return (
         <div className={classes.footerWrapper}>
             <div className={classes.footer}>
-                <img src={FooterLogo} alt="logo" />
+                <Link to="/"><img src={FooterLogo} alt="logo" /></Link>
                 <div>
                     <div className={classes.footerContent}>
                         <div>Terms of Use</div>

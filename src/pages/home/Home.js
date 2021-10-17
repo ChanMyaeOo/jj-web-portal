@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useStyles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, CircularProgress } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import LivImg from "../../images/liv-loc.png";
@@ -100,7 +100,7 @@ const Home = () => {
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Notice</h5>
-                            <div>+</div>
+                            <div><Link to="/notice">+</Link></div>
                         </div>
                         {noticeLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />
@@ -124,7 +124,7 @@ const Home = () => {
                     <div className={classes.photoAlbumContainer}>
                         <div className={classes.postTitle}>
                             <h5>Photo Album</h5>
-                            <div>+</div>
+                            <div><Link to="/photo-album">+</Link></div>
                         </div>
                         {photoAlbumLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />
@@ -155,7 +155,7 @@ const Home = () => {
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Buy and Sell</h5>
-                            <div>+</div>
+                            <div><Link to="buy-sell">+</Link></div>
                         </div>
                         {buySellLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />
@@ -176,7 +176,7 @@ const Home = () => {
                     <div className={classes.storyContainer}>
                         <div className={classes.postTitle}>
                             <h5>Job Search</h5>
-                            <div>+</div>
+                            <div><Link to="/job-search">+</Link></div>
                         </div>
                         {jobSearchLatestPosts.length === 0 ? (
                             <CircularProgress style={{ margin: "20px" }} />

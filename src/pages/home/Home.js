@@ -17,6 +17,7 @@ import {
     getPhotoAlbumLatestPosts,
     getBuySellLatestPosts,
     getJobSearchLatestPosts,
+    getLatestPosts
 } from "../../actions/posts";
 import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
 import PhotoAlbumImg from "../../images/photo-album.png";
@@ -34,6 +35,7 @@ const Home = () => {
         photoAlbumLatestPosts,
         buySellLatestPosts,
         jobSearchLatestPosts,
+        latestPosts
     } = useSelector((state) => state.posts);
     const history = useHistory();
 
@@ -46,6 +48,7 @@ const Home = () => {
         dispatch(getBuySellLatestPosts());
         dispatch(getJobSearchLatestPosts());
         dispatch(getLivingLocationPosts());
+        dispatch(getLatestPosts())
     }, []);
     console.log("Home page", livingLocationPosts);
 
@@ -90,7 +93,7 @@ const Home = () => {
                             <CircularProgress style={{ margin: "20px" }} />
                         ) : (
                             <ul className={classes.postListWrapper}>
-                                {posts.map((post) => (
+                                {latestPosts.map((post) => (
                                     <li
                                         key={post._id}
                                         onClick={() => openPost(post._id)}

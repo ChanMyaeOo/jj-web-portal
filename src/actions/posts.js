@@ -14,7 +14,8 @@ import {
     GET_NOTICE_LATEST_POSTS,
     GET_PHOTO_ALBUM_LATEST_POSTS,
     GET_BUY_SELL_LATEST_POSTS,
-    GET_JOB_SEARCH_LATEST_POSTS
+    GET_JOB_SEARCH_LATEST_POSTS,
+    GET_LATEST_POSTS
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -37,6 +38,20 @@ export const getPosts = () => async (dispatch) => {
         const { data } = await api.fetchPosts();
         dispatch({
             type: FETCH_ALL,
+            payload: data,
+        });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getLatestPosts = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getLatestPosts();
+        dispatch({
+            type: GET_LATEST_POSTS,
             payload: data,
         });
         dispatch({ type: END_LOADING });

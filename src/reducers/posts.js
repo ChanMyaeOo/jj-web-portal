@@ -15,6 +15,7 @@ import {
     GET_BUY_SELL_LATEST_POSTS,
     START_LOADING,
     END_LOADING,
+    GET_LATEST_POSTS
 } from "../constants/actionTypes";
 
 export default (
@@ -30,6 +31,7 @@ export default (
         photoAlbumLatestPosts: [],
         buySellLatestPosts: [],
         jobSearchLatestPosts: [],
+        latestPosts: []
     },
     action
 ) => {
@@ -59,6 +61,11 @@ export default (
                 posts: state.posts.filter(
                     (post) => post._id !== action.payload
                 ),
+            };
+        case GET_LATEST_POSTS:
+            return {
+                ...state,
+                latestPosts: action.payload,
             };
         case GET_LIVING_LOCATION_POSTS:
             return {

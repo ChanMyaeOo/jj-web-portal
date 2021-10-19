@@ -8,7 +8,12 @@ import { Grid, CircularProgress } from "@material-ui/core";
 import { setCurrentId } from "../../actions/data";
 import { SET_CURRENT_ID } from "../../constants/actionTypes";
 import Preview from "../../components/preview/Preview";
+import PhotoPreview from '../../components/photo-preview/PhotoPreview'
 import NoticeImg from "../../images/notice.png";
+import HomeAppliancesImg from '../../images/buy-sell.png'
+import JobSearchImg from '../../images/job-search.png';
+import LivingLocationImg from '../../images/liv-loc.png'
+import PhotoAlbumImg from '../../images/photo-album.png';
 
 const PostDetails = () => {
     const { posts, post, isLoading } = useSelector((state) => state.posts);
@@ -49,7 +54,7 @@ const PostDetails = () => {
                         <>
                             {post && (
                                 <>
-                                    <h3>{post.title}</h3>
+                                    <h3 className={classes.postDetailsTitle}>{post.title}</h3>
                                     {post.selectedFile && (
                                         <img
                                             src={post.selectedFile}
@@ -57,10 +62,11 @@ const PostDetails = () => {
                                             className={classes.postDetailsImg}
                                         />
                                     )}
-                                    <p>{post.message}</p>
+                                    <p className={classes.postDetailsMessage}>{post.message}</p>
                                     <div className={classes.btnWrapper}>
-                                        <button onClick={editPost}>Edit</button>
+                                        <button onClick={editPost} className={classes.editBtn}>Edit</button>
                                         <button
+                                            className={classes.deleteBtn}
                                             onClick={() => {
                                                 dispatch(deletePost(post._id));
                                                 history.push({
@@ -81,6 +87,24 @@ const PostDetails = () => {
             {post && post.tag === "Notice" && (
                 <Preview imgUrl={NoticeImg} title="Notice" showNotice={true} hideLogo={false} />
             )}
+
+            {post && post.tag === "Home Appliances" && (
+                <Preview imgUrl={HomeAppliancesImg} title="Home Appliances" showBuyAndSell={true} hideLogo={false} />
+            )}
+
+            {post && post.tag === "Recruitment/Job Search" && (
+                <Preview imgUrl={JobSearchImg} title="Recruitment/Job Search" showJobSearch={true} hideLogo={false} />
+            )}
+
+            {post && post.tag === "Living/Location" && (
+                <Preview imgUrl={LivingLocationImg} title="Living/Location" showLivingLocation={true} hideLogo={false} />
+            )}
+
+            {
+                post && post.tag === "Photo Album" && (
+                    <PhotoPreview imgUrl={PhotoAlbumImg} title="Photo Album" hideLogo={false}/>
+                )
+            }
         </>
     );
 };

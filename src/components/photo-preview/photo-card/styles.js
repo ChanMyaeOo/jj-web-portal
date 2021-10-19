@@ -5,6 +5,10 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: "56.25%", // 16:9
     },
+    photoCard: {
+        cursor: 'pointer',
+        margin: '10px'
+    }
 }));
 
 export default useStyles;

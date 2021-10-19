@@ -35,7 +35,7 @@ const PhotoCard = ({
         });
     };
     return (
-        <Card onClick={openPost} style={{ margin: '10px'}}>
+        <Card onClick={openPost}  className={classes.photoCard}>
             <CardMedia className={classes.media} image={postImgUrl} />
             <CardContent>
                 <p>{postTitle}</p>

@@ -25,7 +25,14 @@ const useStyles = makeStyles((theme) => ({
     },
     btnCompleted: {
          width: 'fit-content',
-         marginLeft: 'auto'
+         marginLeft: 'auto',
+         marginTop: '25px',
+         marginBottom: '20px',
+         padding: '10px',
+         border: 'none',
+         cursor: 'pointer',
+         background: '#b72a0f',
+         color: '#f2f2f2'
     }
 }));
 

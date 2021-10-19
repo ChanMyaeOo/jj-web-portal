@@ -22,7 +22,7 @@ import Photo4 from "../../images/test-pt4.jpg";
 import PhotoCard from "./photo-card/PhotoCard";
 import { getPhotoAlbumPosts } from "../../actions/posts";
 
-const PhotoPreview = ({ imgUrl, title }) => {
+const PhotoPreview = ({ imgUrl, title, hideLogo = true }) => {
     const classes = useStyles();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -34,14 +34,17 @@ const PhotoPreview = ({ imgUrl, title }) => {
         dispatch(getPhotoAlbumPosts());
     }, [posts]);
 
-    console.log('Photo Preview', location);
+    console.log("Photo Preview", location);
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
-                <div className={classes.logoWrapper}>
-                    <img src={imgUrl} alt="logo" />
-                    <span>{title}</span>
-                </div>
+                {hideLogo ? (
+                    <div className={classes.logoWrapper}>
+                        <img src={imgUrl} alt="logo" />
+                        <span>{title}</span>
+                    </div>
+                ) : null}
+
                 <div className={classes.detailsHeader}>
                     <p>Total 200 posts </p>
 
@@ -57,9 +60,8 @@ const PhotoPreview = ({ imgUrl, title }) => {
                     </Link>
                 </div>
 
-                
                 {isLoading ? (
-                    <CircularProgress style={{ marginTop: '20px'}}/>
+                    <CircularProgress style={{ marginTop: "20px" }} />
                 ) : (
                     <Grid
                         container
@@ -68,14 +70,22 @@ const PhotoPreview = ({ imgUrl, title }) => {
                     >
                         {photoAlbumPosts.map((post) => (
                             <Grid item md={4} key={post._id}>
-                                <PhotoCard showDetails={true} postImgUrl={post.selectedFile} postTitle={post.title} postId={post._id} redirectPathname={location.pathname} imgUrl={imgUrl} title={title}/>
+                                <PhotoCard
+                                    showDetails={true}
+                                    postImgUrl={post.selectedFile}
+                                    postTitle={post.title}
+                                    postId={post._id}
+                                    redirectPathname={location.pathname}
+                                    imgUrl={imgUrl}
+                                    title={title}
+                                />
                             </Grid>
                         ))}
                     </Grid>
                 )}
             </Grid>
             <Grid item lg={3} md={3}>
-                Right Side
+                {/* Right Side */}
             </Grid>
         </Grid>
     );

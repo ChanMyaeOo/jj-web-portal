@@ -5,7 +5,6 @@ import { Grid, CircularProgress } from "@material-ui/core";
 import { useHistory, Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import LivImg from "../../images/liv-loc.png";
 import CaroImg1 from "../../images/car1.jpg";
 import CaroImg2 from "../../images/car2.jpg";
 import CaroImg3 from "../../images/car3.jpg";
@@ -22,6 +21,9 @@ import {
 import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
 import PhotoAlbumImg from "../../images/photo-album.png";
 import NoticeImg from "../../images/notice.png";
+import HomeAppliancesImg from '../../images/buy-sell.png'
+import JobSearchImg from '../../images/job-search.png';
+import LivingLocationImg from "../../images/liv-loc.png";
 
 const Home = () => {
     const classes = useStyles();
@@ -60,8 +62,27 @@ const Home = () => {
                 title: "Notice",
                 redirectPathname: "/notice",
             });
-        } else if(postTag === "Photo Album") {
-            
+        } else if(postTag === "Home Appliances") {
+            history.push({
+                pathname: `/posts/${id}`,
+                imgUrl: HomeAppliancesImg,
+                title: "Home Appliances",
+                redirectPathname: "/buy-sell",
+            });
+        } else if(postTag === "Recruitment/Job Search") {
+            history.push({
+                pathname: `/posts/${id}`,
+                imgUrl: JobSearchImg,
+                title: "Recruitment/Job Search",
+                redirectPathname: "/job-search",
+            });
+        } else if(postTag === "Living/Location") {
+             history.push({
+                pathname: `/posts/${id}`,
+                imgUrl: LivingLocationImg,
+                title: "Living/Location",
+                redirectPathname: "/living-location-details",
+            });
         }
     };
 
@@ -96,7 +117,7 @@ const Home = () => {
                                 {latestPosts.map((post) => (
                                     <li
                                         key={post._id}
-                                        onClick={() => openPost(post._id)}
+                                        onClick={() => openPost(post._id, post.tag)}
                                         className={classes.postList}
                                     >
                                         {post.title}
@@ -180,7 +201,7 @@ const Home = () => {
                                 {buySellLatestPosts.map((post) => (
                                     <li
                                         key={post._id}
-                                        onClick={() => openPost(post._id)}
+                                        onClick={() => openPost(post._id, post.tag)}
                                         className={classes.postList}
                                     >
                                         {post.title}
@@ -203,7 +224,7 @@ const Home = () => {
                                 {jobSearchLatestPosts.map((post) => (
                                     <li
                                         key={post._id}
-                                        onClick={() => openPost(post._id)}
+                                        onClick={() => openPost(post._id, post.tag)}
                                         className={classes.postList}
                                     >
                                         {post.title}

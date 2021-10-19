@@ -41,6 +41,8 @@ const Form = () => {
         clear()
     };
 
+    console.log("Form Data Location", location)
+
     const clear = () => {
         dispatch(setCurrentId(null));
         setPostData({
@@ -49,6 +51,15 @@ const Form = () => {
             selectedFile: "",
         });
     };
+
+    const cancelBtnAction = () => {
+        clear();
+        history.push({
+            pathname: location.redirectPathname,
+            title: location.title,
+            imgUrl: location.imgUrl,
+        })
+    }
 
     return (
         <Grid container className={classes.formWrapper}>
@@ -87,9 +98,12 @@ const Form = () => {
                             setPostData({ ...postData, selectedFile: base64 })
                         }
                     />
-                    <button type="submit" className={classes.btnCompleted}>
-                        Completed
-                    </button>
+                    <div className={classes.btnWrapper}>
+                        <button className={classes.cancelBtn} onClick={cancelBtnAction}>Cancel</button>
+                        <button type="submit" className={classes.btnCompleted}>
+                            Completed
+                        </button>
+                    </div>
                 </form>
             </Grid>
         </Grid>

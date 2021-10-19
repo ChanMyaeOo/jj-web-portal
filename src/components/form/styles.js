@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     },
     btnCompleted: {
          width: 'fit-content',
-         marginLeft: 'auto',
          marginTop: '25px',
          marginBottom: '20px',
          padding: '10px',
@@ -33,6 +32,20 @@ const useStyles = makeStyles((theme) => ({
          cursor: 'pointer',
          background: '#b72a0f',
          color: '#f2f2f2'
+    },
+    cancelBtn: {
+          marginRight: '10px',
+          width: 'fit-content',
+          marginTop: '25px',
+         marginBottom: '20px',
+         padding: '10px',
+         border: 'none',
+         cursor: 'pointer',
+         background: '#ccc'
+    },
+    btnWrapper: {
+         display: 'flex',
+         justifyContent: "flex-end"
     }
 }));
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://jj-web-portal.herokuapp.com/' });
 
 export const createPost = (newPost) => API.post('/posts', newPost);
 export const fetchPost = (id) => API.get(`/posts/${id}`);

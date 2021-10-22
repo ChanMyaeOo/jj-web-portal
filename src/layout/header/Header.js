@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import decode from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { LOGOUT } from "../../constants/actionTypes";
 import PortalHeaderImg from "../../images/web-header.png";
 import PortalLogoImg from "../../images/portal-logo.png";
 import useStyles from "./styles";
 
 const Header = () => {
     const classes = useStyles();
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("profile"))
+    );
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const history = useHistory();
+
+    const logout = () => {
+        dispatch({ type: LOGOUT });
+
+        history.push("/auth");
+
+        setUser(null);
+    };
+
+    useEffect(() => {
+        const token = user?.token;
+
+        if (token) {
+            const decodedToken = decode(token);
+
+            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+
+        setUser(JSON.parse(localStorage.getItem("profile")));
+    }, [location]);
 
     const handleOpenMenu = () => {
         const resOverlay = document.getElementById("res-overlay");
@@ -26,11 +55,19 @@ const Header = () => {
             <div className={classes.desktopViewHeader}>
                 <div className={classes.topHeader}>
                     <div className={classes.topHeaderWrap}>
-                        <div><Link to="/auth">log in</Link></div>
+                        <div>
+                            {user?.result ? (
+                                <div onClick={logout} className={classes.headerLogout}>Log Out</div>
+                            ) : (
+                                <Link to="/auth">Log In</Link>
+                            )}
+                        </div>
 
                         <div>|</div>
 
-                        <div><Link to="/auth">join the membership</Link></div>
+                        <div>
+                            <Link to="/auth">join the membership</Link>
+                        </div>
 
                         <img src={PortalHeaderImg} alt="portal header" />
                     </div>

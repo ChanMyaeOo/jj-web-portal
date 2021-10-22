@@ -18,3 +18,4 @@ export const GET_JOB_SEARCH_LATEST_POSTS = 'GET_JOB_SEARCH_LATEST_POSTS'
 export const GET_LATEST_POSTS = 'GET_LATEST_POSTS'
 
 export const AUTH = 'AUTH'
+export const LOGOUT = 'LOGOUT'

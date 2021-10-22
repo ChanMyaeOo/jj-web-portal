@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
             color: '#111'
         }
     },
+    headerLogout: {
+        cursor: 'pointer',
+        color: '#111'
+    },
 
     headerLogoWrap: {
         display: "flex",

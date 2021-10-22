@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
             justifyContent: "center",
             alignItems: "center",
         },
+        "& > div > a": {
+            textDecoration: "none",
+            color: '#111'
+        }
     },
 
     headerLogoWrap: {

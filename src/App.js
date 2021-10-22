@@ -17,6 +17,7 @@ import PhotoAlbum from './pages/photo-album/PhotoAlbum';
 import Notice from './pages/notice/Notice'
 import BuySell from './pages/buy-sell/BuySell'
 import Recruitment from './pages/recruitment/Recruitment'
+import Auth from './pages/auth/Auth'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -39,6 +40,11 @@ const App = () => {
                     <Route path="/form">
                         <Layout>
                             <Form />
+                        </Layout>
+                    </Route>
+                     <Route path="/auth">
+                        <Layout>
+                            <Auth />
                         </Layout>
                     </Route>
                     <Route path="/living-location-details">

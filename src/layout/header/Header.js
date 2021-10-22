@@ -26,11 +26,11 @@ const Header = () => {
             <div className={classes.desktopViewHeader}>
                 <div className={classes.topHeader}>
                     <div className={classes.topHeaderWrap}>
-                        <div>log in</div>
+                        <div><Link to="/auth">log in</Link></div>
 
                         <div>|</div>
 
-                        <div>join the membership</div>
+                        <div><Link to="/auth">join the membership</Link></div>
 
                         <img src={PortalHeaderImg} alt="portal header" />
                     </div>

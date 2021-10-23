@@ -29,6 +29,7 @@ const Preview = ({
 }) => {
     const classes = useStyles();
     const location = useLocation();
+    const user = JSON.parse(localStorage.getItem("profile"));
     console.log("Preview location", location);
     return (
         <Grid container className={classes.detailsWrapper}>
@@ -45,16 +46,18 @@ const Preview = ({
                 <div className={classes.detailsHeader}>
                     <p>Total 200 posts </p>
 
-                    <Link
-                        to={{
-                            pathname: "/form",
-                            imgUrl,
-                            title,
-                            redirectPathname: location.pathname,
-                        }}
-                    >
-                        writing
-                    </Link>
+                    {user?.result && (
+                        <Link
+                            to={{
+                                pathname: "/form",
+                                imgUrl,
+                                title,
+                                redirectPathname: location.pathname,
+                            }}
+                        >
+                            writing
+                        </Link>
+                    )}
                 </div>
 
                 <div className={classes.previewTable}>

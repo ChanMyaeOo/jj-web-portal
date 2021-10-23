@@ -18,6 +18,7 @@ const Form = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const currentId = useSelector((state) => state.data.currentId);
+    const user = JSON.parse(localStorage.getItem('profile'));
     const post = useSelector((state) =>
         currentId
             ? state.posts.posts.find((post) => post._id === currentId)
@@ -32,10 +33,10 @@ const Form = () => {
         e.preventDefault();
         console.log("Form location ", location.redirectPathname);
         if (currentId === null) {
-            dispatch(createPost({ ...postData, tag: location.title}));
+            dispatch(createPost({ ...postData, tag: location.title, name: user?.result?.name}));
             history.push(location.redirectPathname);
         } else {
-            dispatch(updatePost(currentId, postData))
+            dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }))
             history.push(location.redirectPathname);
         }
         clear()

@@ -4,6 +4,14 @@ const API = axios.create({ baseURL: 'http://localhost:5000' });
 
 // https://jj-web-portal.herokuapp.com/
 
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem('profile')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
+  }
+
+  return req;
+});
+
 export const createPost = (newPost) => API.post('/posts', newPost);
 export const fetchPost = (id) => API.get(`/posts/${id}`);
 export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost);

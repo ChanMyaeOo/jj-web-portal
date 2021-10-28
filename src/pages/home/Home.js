@@ -61,6 +61,7 @@ const Home = () => {
                 imgUrl: NoticeImg,
                 title: "Notice",
                 redirectPathname: "/notice",
+                pgForNotice: true
             });
         } else if(postTag === "Home Appliances") {
             history.push({

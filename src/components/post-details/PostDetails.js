@@ -104,6 +104,7 @@ const PostDetails = () => {
                     title="Notice"
                     showNotice={true}
                     hideLogo={false}
+                    pgForNotice={location.pgForNotice}
                 />
             )}
 

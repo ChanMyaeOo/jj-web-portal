@@ -17,6 +17,11 @@ import NoticePosts from "../posts/NoticePosts";
 import BuySellPosts from "../posts/BuySellPosts";
 import JobSearchPosts from "../posts/JobSearchPosts";
 import LivingLocationPosts from "../posts/LivingLocationPosts";
+import Paginate from '../pagination/Paginate'
+
+function useQuery() {
+  return new URLSearchParams(useLocation());
+}
 
 const Preview = ({
     imgUrl,
@@ -26,11 +31,15 @@ const Preview = ({
     showBuyAndSell,
     showJobSearch,
     hideLogo = true,
+    pgForNotice,
+    page
 }) => {
     const classes = useStyles();
     const location = useLocation();
     const user = JSON.parse(localStorage.getItem("profile"));
-    console.log("Preview location", location);
+    // const query = useQuery();
+    // const page = query.get('page') || 1;
+    console.log("Preview Page ", page);
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
@@ -110,6 +119,10 @@ const Preview = ({
                             </TableBody>
                         </Table>
                     </TableContainer>
+
+                    <Paper elevation={6}>
+                        <Paginate pgForNotice={pgForNotice} page={page} />
+                    </Paper>
                 </div>
             </Grid>
             <Grid item lg={3} md={3}>

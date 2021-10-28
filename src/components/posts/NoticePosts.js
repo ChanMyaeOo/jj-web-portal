@@ -13,13 +13,14 @@ const NoticePosts = ({ imgUrl, title, redirectPathname }) => {
     useEffect(() => {
         dispatch(getNoticePosts());
     }, [posts]);
+    console.log("Notice Posts test", noticePosts)
     return (
         <>
             {isLoading ? (
                 <CircularProgress style={{ margin: '20px 0'}}/>
             ) : (
                 <>
-                    {noticePosts.map((post) => (
+                    {noticePosts?.map((post) => (
                         <Post
                             post={post}
                             key={post._id}

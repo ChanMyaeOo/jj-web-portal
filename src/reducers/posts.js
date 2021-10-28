@@ -15,7 +15,7 @@ import {
     GET_BUY_SELL_LATEST_POSTS,
     START_LOADING,
     END_LOADING,
-    GET_LATEST_POSTS
+    GET_LATEST_POSTS,
 } from "../constants/actionTypes";
 
 export default (
@@ -31,7 +31,7 @@ export default (
         photoAlbumLatestPosts: [],
         buySellLatestPosts: [],
         jobSearchLatestPosts: [],
-        latestPosts: []
+        latestPosts: [],
     },
     action
 ) => {
@@ -85,7 +85,9 @@ export default (
         case GET_NOTICE_POSTS:
             return {
                 ...state,
-                noticePosts: action.payload,
+                noticePosts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
             };
         case GET_BUY_SELL_POSTS:
             return {

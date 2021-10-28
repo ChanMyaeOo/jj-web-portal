@@ -57,7 +57,7 @@ const App = () => {
                             <PhotoAlbum />
                         </Layout>
                     </Route>
-                    <Route path="/notice">
+                    <Route exact path="/notice">
                         <Layout>
                             <Notice />
                         </Layout>

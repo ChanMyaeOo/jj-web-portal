@@ -19,9 +19,6 @@ import JobSearchPosts from "../posts/JobSearchPosts";
 import LivingLocationPosts from "../posts/LivingLocationPosts";
 import Paginate from '../pagination/Paginate'
 
-function useQuery() {
-  return new URLSearchParams(useLocation());
-}
 
 const Preview = ({
     imgUrl,
@@ -32,14 +29,13 @@ const Preview = ({
     showJobSearch,
     hideLogo = true,
     pgForNotice,
+    pgForHomeAppliances,
     page
 }) => {
     const classes = useStyles();
     const location = useLocation();
     const user = JSON.parse(localStorage.getItem("profile"));
-    // const query = useQuery();
-    // const page = query.get('page') || 1;
-    console.log("Preview Page ", page);
+    
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9}>
@@ -122,6 +118,10 @@ const Preview = ({
 
                     <Paper elevation={6}>
                         <Paginate pgForNotice={pgForNotice} page={page} />
+                    </Paper>
+
+                    <Paper elevation={6}>
+                        <Paginate pgForHomeAppliances={pgForHomeAppliances} page={page} />
                     </Paper>
                 </div>
             </Grid>

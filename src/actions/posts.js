@@ -127,7 +127,6 @@ export const getNoticePosts = (page) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
         const { data: { data, currentPage, numberOfPages } } = await api.getNoticePosts(page);
-        console.log('GetNOticePosts action ' ,data)
         dispatch({ type: GET_NOTICE_POSTS, payload: { data, currentPage, numberOfPages }});
         dispatch({ type: END_LOADING });
     } catch (error) {
@@ -146,11 +145,12 @@ export const getNoticeLatestPosts = () => async (dispatch) => {
     }
 };
 
-export const getBuySellPosts = () => async (dispatch) => {
+export const getBuySellPosts = (page) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
-        const { data } = await api.getBuySellPosts();
-        dispatch({ type: GET_BUY_SELL_POSTS, payload: data });
+
+        const { data: { data, currentPage, numberOfPages } } = await api.getBuySellPosts(page);
+        dispatch({ type: GET_BUY_SELL_POSTS, payload: { data, currentPage, numberOfPages }});
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

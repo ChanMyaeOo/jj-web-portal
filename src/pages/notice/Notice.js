@@ -12,7 +12,6 @@ function useQuery() {
 const Notice = () => {
      const query = useQuery();
     const page = query.get('page') || 1;
-    console.log('Notice Page ', page)
     return (
         <div>
             <Preview imgUrl={NoticeImg} title="Notice" showNotice={true} pgForNotice={true} page={page}/>

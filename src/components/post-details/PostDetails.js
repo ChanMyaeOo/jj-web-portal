@@ -114,6 +114,7 @@ const PostDetails = () => {
                     title="Home Appliances"
                     showBuyAndSell={true}
                     hideLogo={false}
+                    pgForHomeAppliances={location.pgForHomeAppliances}
                 />
             )}
 

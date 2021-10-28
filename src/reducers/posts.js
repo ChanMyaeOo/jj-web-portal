@@ -92,7 +92,9 @@ export default (
         case GET_BUY_SELL_POSTS:
             return {
                 ...state,
-                buySellPosts: action.payload,
+                buySellPosts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
             };
         case GET_BUY_SELL_LATEST_POSTS:
             return {

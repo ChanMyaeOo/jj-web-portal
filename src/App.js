@@ -62,7 +62,7 @@ const App = () => {
                             <Notice />
                         </Layout>
                     </Route>
-                    <Route path="/buy-sell">
+                    <Route exact path="/buy-sell">
                         <Layout>
                             <BuySell />
                         </Layout>

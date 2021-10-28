@@ -69,6 +69,7 @@ const Home = () => {
                 imgUrl: HomeAppliancesImg,
                 title: "Home Appliances",
                 redirectPathname: "/buy-sell",
+                pgForHomeAppliances: true
             });
         } else if(postTag === "Recruitment/Job Search") {
             history.push({

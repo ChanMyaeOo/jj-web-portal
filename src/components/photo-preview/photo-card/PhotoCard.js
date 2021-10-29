@@ -32,6 +32,7 @@ const PhotoCard = ({
             imgUrl,
             title,
             redirectPathname,
+            pgForPhotoAlbum: true
         });
     };
     return (

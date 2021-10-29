@@ -101,11 +101,12 @@ export const getLivingLocationPosts = () => async (dispatch) => {
     }
 };
 
-export const getPhotoAlbumPosts = () => async (dispatch) => {
+export const getPhotoAlbumPosts = (page) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
-        const { data } = await api.getPhotoAlbumPosts();
-        dispatch({ type: GET_PHOTO_ALBUM_POSTS, payload: data });
+
+        const { data: { data, currentPage, numberOfPages } } = await api.getPhotoAlbumPosts(page);
+        dispatch({ type: GET_PHOTO_ALBUM_POSTS, payload: { data, currentPage, numberOfPages }});
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

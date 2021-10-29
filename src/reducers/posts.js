@@ -75,7 +75,9 @@ export default (
         case GET_PHOTO_ALBUM_POSTS:
             return {
                 ...state,
-                photoAlbumPosts: action.payload,
+                photoAlbumPosts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
             };
         case GET_PHOTO_ALBUM_LATEST_POSTS:
             return {

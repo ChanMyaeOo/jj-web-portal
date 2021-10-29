@@ -141,6 +141,7 @@ const PostDetails = () => {
                     imgUrl={PhotoAlbumImg}
                     title="Photo Album"
                     hideLogo={false}
+                    pgForPhotoAlbum={location.pgForPhotoAlbum}
                 />
             )}
         </>

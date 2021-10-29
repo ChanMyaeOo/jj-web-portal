@@ -12,6 +12,7 @@ import {
     ButtonBase,
     Avatar,
 } from "@material-ui/core/";
+import Paper from "@material-ui/core/Paper";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import useStyles from "./styles";
@@ -21,8 +22,9 @@ import Photo3 from "../../images/test-pt3.jpeg";
 import Photo4 from "../../images/test-pt4.jpg";
 import PhotoCard from "./photo-card/PhotoCard";
 import { getPhotoAlbumPosts } from "../../actions/posts";
+import Paginate from '../pagination/Paginate'
 
-const PhotoPreview = ({ imgUrl, title, hideLogo = true }) => {
+const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page }) => {
     const classes = useStyles();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -71,7 +73,7 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true }) => {
                         spacing={3}
                         className={classes.photoContainer}
                     >
-                        {photoAlbumPosts.map((post) => (
+                        {photoAlbumPosts?.map((post) => (
                             <Grid item md={4} key={post._id}>
                                 <PhotoCard
                                     showDetails={true}
@@ -86,6 +88,13 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true }) => {
                         ))}
                     </Grid>
                 )}
+
+                <Paper elevation={6}>
+                    <Paginate
+                        pgForPhotoAlbum={pgForPhotoAlbum}
+                        page={page}
+                    />
+                </Paper>
             </Grid>
             <Grid item lg={3} md={3}>
                 {/* Right Side */}

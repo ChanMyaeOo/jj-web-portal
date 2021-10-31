@@ -115,7 +115,9 @@ export default (
         case GET_JOB_SEARCH_POSTS:
             return {
                 ...state,
-                jobSearchPosts: action.payload,
+                jobSearchPosts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
             };
         case GET_JOB_SEARCH_LATEST_POSTS:
             return {

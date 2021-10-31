@@ -136,6 +136,7 @@ const PostDetails = () => {
                     title="Recruitment/Job Search"
                     showJobSearch={true}
                     hideLogo={false}
+                    pgForRecruitment={location.pgForRecruitment}
                 />
             )}
 

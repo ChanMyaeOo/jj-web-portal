@@ -19,7 +19,7 @@ const JobSearchPosts = ({ imgUrl, title, redirectPathname }) => {
                 <CircularProgress style={{ margin: '20px 0'}}/>
             ) : (
                 <>
-                    {jobSearchPosts.map((post) => (
+                    {jobSearchPosts?.map((post) => (
                         <Post
                             post={post}
                             key={post._id}

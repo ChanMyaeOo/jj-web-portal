@@ -180,11 +180,12 @@ export const getBuySellLatestPosts = () => async (dispatch) => {
     }
 };
 
-export const getJobSearchPosts = () => async (dispatch) => {
+export const getJobSearchPosts = (page) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
-        const { data } = await api.getJobSearchPosts();
-        dispatch({ type: GET_JOB_SEARCH_POSTS, payload: data });
+
+        const { data: { data, currentPage, numberOfPages } } = await api.getJobSearchPosts(page);
+        dispatch({ type: GET_JOB_SEARCH_POSTS, payload: { data, currentPage, numberOfPages }});
         dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);

@@ -77,6 +77,7 @@ const Home = () => {
                 imgUrl: JobSearchImg,
                 title: "Recruitment/Job Search",
                 redirectPathname: "/job-search",
+                pgForRecruitment: true
             });
         } else if(postTag === "Living/Location") {
              history.push({

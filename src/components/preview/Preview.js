@@ -30,6 +30,7 @@ const Preview = ({
     hideLogo = true,
     pgForNotice,
     pgForHomeAppliances,
+    pgForRecruitment,
     page
 }) => {
     const classes = useStyles();
@@ -122,6 +123,10 @@ const Preview = ({
 
                     <Paper elevation={6}>
                         <Paginate pgForHomeAppliances={pgForHomeAppliances} page={page} />
+                    </Paper>
+
+                    <Paper elevation={6}>
+                        <Paginate pgForRecruitment={pgForRecruitment} page={page} />
                     </Paper>
                 </div>
             </Grid>

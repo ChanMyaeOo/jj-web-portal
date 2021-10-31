@@ -14,6 +14,7 @@ import HomeAppliancesImg from "../../images/buy-sell.png";
 import JobSearchImg from "../../images/job-search.png";
 import LivingLocationImg from "../../images/liv-loc.png";
 import PhotoAlbumImg from "../../images/photo-album.png";
+import CommentSection from '../comment-section/CommentSection'
 
 const PostDetails = () => {
     const { posts, post, isLoading } = useSelector((state) => state.posts);
@@ -98,6 +99,9 @@ const PostDetails = () => {
                     )}
                 </Grid>
             </Grid>
+
+            <CommentSection post={post} />                                  
+            
             {post && post.tag === "Notice" && (
                 <Preview
                     imgUrl={NoticeImg}

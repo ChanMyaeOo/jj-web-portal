@@ -79,7 +79,9 @@ export default (
         case GET_LIVING_LOCATION_POSTS:
             return {
                 ...state,
-                livingLocationPosts: action.payload,
+                livingLocationPosts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
             };
         case GET_PHOTO_ALBUM_POSTS:
             return {

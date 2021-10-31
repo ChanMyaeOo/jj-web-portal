@@ -31,6 +31,7 @@ const Preview = ({
     pgForNotice,
     pgForHomeAppliances,
     pgForRecruitment,
+    pgForLiving,
     page
 }) => {
     const classes = useStyles();
@@ -127,6 +128,10 @@ const Preview = ({
 
                     <Paper elevation={6}>
                         <Paginate pgForRecruitment={pgForRecruitment} page={page} />
+                    </Paper>
+
+                    <Paper elevation={6}>
+                        <Paginate pgForLiving={pgForLiving} page={page} />
                     </Paper>
                 </div>
             </Grid>

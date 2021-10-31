@@ -21,7 +21,7 @@ export const comment = (value, id) => API.post(`/posts/${id}/commentPost`, { val
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
 
-export const getLivingLocationPosts = () => API.get('/posts/living-location')
+export const getLivingLocationPosts = (page) => API.get(`/posts/living-location?page=${page}`)
 export const getPhotoAlbumPosts = (page) => API.get(`/posts/photo-album?page=${page}`)
 export const getPhotoAlbumLatestPosts = () => API.get('/posts/photo-album-latest')
 export const getNoticePosts = (page) => API.get(`/posts/notice?page=${page}`)

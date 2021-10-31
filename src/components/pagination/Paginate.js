@@ -3,9 +3,9 @@ import { Pagination, PaginationItem } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
-import { getNoticePosts, getBuySellPosts, getPhotoAlbumPosts, getJobSearchPosts } from "../../actions/posts";
+import { getNoticePosts, getBuySellPosts, getPhotoAlbumPosts, getJobSearchPosts, getLivingLocationPosts } from "../../actions/posts";
 
-const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgForRecruitment }) => {
+const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgForRecruitment, pgForLiving }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const { numberOfPages } = useSelector((state) => state.posts);
@@ -19,6 +19,8 @@ const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgF
             dispatch(getPhotoAlbumPosts(page))
         } else if(page && pgForRecruitment) {
             dispatch(getJobSearchPosts(page))
+        } else if(page && pgForLiving) {
+            dispatch(getLivingLocationPosts(page))
         }
     }, [dispatch, page]);
     return (
@@ -90,6 +92,24 @@ const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgF
                             component={Link}
                             // to={`/posts?page=${item.page}`}
                             to={`/job-search?page=${item.page}`}
+                        />
+                    )}
+                />
+            )}
+
+            {pgForLiving && (
+                <Pagination
+                    classes={{ ul: classes.ul }}
+                    count={numberOfPages}
+                    page={Number(page) || 1}
+                    variant="outlined"
+                    color="primary"
+                    renderItem={(item) => (
+                        <PaginationItem
+                            {...item}
+                            component={Link}
+                            // to={`/posts?page=${item.page}`}
+                            to={`/living-location-details?page=${item.page}`}
                         />
                     )}
                 />

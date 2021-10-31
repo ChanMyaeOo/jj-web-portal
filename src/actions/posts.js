@@ -103,10 +103,16 @@ export const commentPost = (value, id) => async (dispatch) => {
     }
 }
 
-export const getLivingLocationPosts = () => async (dispatch) => {
+export const getLivingLocationPosts = (page) => async (dispatch) => {
     try {
-        const { data } = await api.getLivingLocationPosts();
-        dispatch({ type: GET_LIVING_LOCATION_POSTS, payload: data });
+        // const { data } = await api.getLivingLocationPosts();
+        // dispatch({ type: GET_LIVING_LOCATION_POSTS, payload: data });
+
+        dispatch({ type: START_LOADING });
+
+        const { data: { data, currentPage, numberOfPages } } = await api.getLivingLocationPosts(page);
+        dispatch({ type: GET_LIVING_LOCATION_POSTS, payload: { data, currentPage, numberOfPages }});
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
     }

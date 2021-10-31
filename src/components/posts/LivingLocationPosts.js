@@ -19,7 +19,7 @@ const LivingLocationPosts = ({ imgUrl, title, redirectPathname }) => {
                 <CircularProgress style={{ margin: '20px 0'}}/>
             ) : (
                 <>
-                    {livingLocationPosts.map((post) => (
+                    {livingLocationPosts?.map((post) => (
                         <Post
                             post={post}
                             key={post._id}

@@ -15,7 +15,8 @@ import {
     GET_PHOTO_ALBUM_LATEST_POSTS,
     GET_BUY_SELL_LATEST_POSTS,
     GET_JOB_SEARCH_LATEST_POSTS,
-    GET_LATEST_POSTS
+    GET_LATEST_POSTS,
+    COMMENT
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -91,6 +92,16 @@ export const deletePost = (id) => async (dispatch) => {
         console.log(error);
     }
 };
+
+export const commentPost = (value, id) => async (dispatch) => {
+    try {
+        const { data } = await api.comment(value, id)
+        dispatch({ type: COMMENT, payload: data })
+        return data.comments
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const getLivingLocationPosts = () => async (dispatch) => {
     try {

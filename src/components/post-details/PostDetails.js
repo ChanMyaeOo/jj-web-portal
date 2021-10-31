@@ -26,7 +26,11 @@ const PostDetails = () => {
     const { currentId } = useSelector((state) => state.data);
     const user = JSON.parse(localStorage.getItem("profile"));
     // console.log(currentId)
-    console.log("Post Details Post Test", post);
+
+    if(post)  {
+
+        console.log("Post Details Post Test", post);
+    }
 
     useEffect(() => {
         dispatch(getPost(id));
@@ -99,8 +103,12 @@ const PostDetails = () => {
                     )}
                 </Grid>
             </Grid>
-
-            <CommentSection post={post} />                                  
+            
+            {
+                post && (
+                    <CommentSection post={post} />                                  
+                )
+            }
             
             {post && post.tag === "Notice" && (
                 <Preview

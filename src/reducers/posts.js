@@ -16,6 +16,7 @@ import {
     START_LOADING,
     END_LOADING,
     GET_LATEST_POSTS,
+    COMMENT
 } from "../constants/actionTypes";
 
 export default (
@@ -61,6 +62,14 @@ export default (
                 posts: state.posts.filter(
                     (post) => post._id !== action.payload
                 ),
+            };
+        case COMMENT: 
+            return {
+                ...state,
+                posts: state.posts.map(post => {
+                    if(post._id === action.payload._id) return action.payload
+                    return post
+                })
             };
         case GET_LATEST_POSTS:
             return {

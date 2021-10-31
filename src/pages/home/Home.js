@@ -24,6 +24,7 @@ import NoticeImg from "../../images/notice.png";
 import HomeAppliancesImg from '../../images/buy-sell.png'
 import JobSearchImg from '../../images/job-search.png';
 import LivingLocationImg from "../../images/liv-loc.png";
+import RightPreview from '../../components/right-preview/RightPreview'
 
 const Home = () => {
     const classes = useStyles();
@@ -238,6 +239,8 @@ const Home = () => {
                     </div>
                 </div>
             </Grid>
+
+            <RightPreview />
         </Grid>
     );
 };

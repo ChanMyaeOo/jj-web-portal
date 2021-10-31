@@ -23,6 +23,7 @@ import Photo4 from "../../images/test-pt4.jpg";
 import PhotoCard from "./photo-card/PhotoCard";
 import { getPhotoAlbumPosts } from "../../actions/posts";
 import Paginate from '../pagination/Paginate'
+import RightPreview from "../right-preview/RightPreview";
 
 const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page }) => {
     const classes = useStyles();
@@ -96,9 +97,7 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page })
                     />
                 </Paper>
             </Grid>
-            <Grid item lg={3} md={3}>
-                {/* Right Side */}
-            </Grid>
+            <RightPreview />
         </Grid>
     );
 };

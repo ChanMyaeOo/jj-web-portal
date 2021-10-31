@@ -18,6 +18,7 @@ import BuySellPosts from "../posts/BuySellPosts";
 import JobSearchPosts from "../posts/JobSearchPosts";
 import LivingLocationPosts from "../posts/LivingLocationPosts";
 import Paginate from '../pagination/Paginate'
+import RightPreview from "../right-preview/RightPreview";
 
 
 const Preview = ({
@@ -135,9 +136,7 @@ const Preview = ({
                     </Paper>
                 </div>
             </Grid>
-            <Grid item lg={3} md={3}>
-                {/* Right Side */}
-            </Grid>
+            <RightPreview />
         </Grid>
     );
 };

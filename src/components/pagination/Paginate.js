@@ -3,12 +3,14 @@ import { Pagination, PaginationItem } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
-import { getNoticePosts, getBuySellPosts, getPhotoAlbumPosts, getJobSearchPosts, getLivingLocationPosts } from "../../actions/posts";
+import { getNoticePosts, getBuySellPosts, getPhotoAlbumPosts, getJobSearchPosts, getLivingLocationPosts, getOwnPosts } from "../../actions/posts";
 
-const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgForRecruitment, pgForLiving }) => {
+const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForOwnPosts, pgForPhotoAlbum, pgForRecruitment, pgForLiving }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const { numberOfPages } = useSelector((state) => state.posts);
+    const user = JSON.parse(localStorage.getItem('profile'))
+    // console.log('Pagination User ', user.result._id)
 
     useEffect(() => {
         if (page && pgForNotice) {
@@ -21,6 +23,8 @@ const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgF
             dispatch(getJobSearchPosts(page))
         } else if(page && pgForLiving) {
             dispatch(getLivingLocationPosts(page))
+        } else if(page && pgForOwnPosts) {
+            dispatch(getOwnPosts(page, user?.result?._id))
         }
     }, [dispatch, page]);
     return (
@@ -110,6 +114,24 @@ const Paginate = ({ page, pgForNotice, pgForHomeAppliances, pgForPhotoAlbum, pgF
                             component={Link}
                             // to={`/posts?page=${item.page}`}
                             to={`/living-location-details?page=${item.page}`}
+                        />
+                    )}
+                />
+            )}
+
+            {pgForOwnPosts && (
+                <Pagination
+                    classes={{ ul: classes.ul }}
+                    count={numberOfPages}
+                    page={Number(page) || 1}
+                    variant="outlined"
+                    color="primary"
+                    renderItem={(item) => (
+                        <PaginationItem
+                            {...item}
+                            component={Link}
+                            // to={`/posts?page=${item.page}`}
+                            to={`/own-posts?page=${item.page}`}
                         />
                     )}
                 />

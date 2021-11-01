@@ -25,6 +25,7 @@ const Header = () => {
         history.push("/auth");
 
         setUser(null);
+        history.go(0)
     };
 
     useEffect(() => {

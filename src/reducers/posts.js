@@ -16,7 +16,8 @@ import {
     START_LOADING,
     END_LOADING,
     GET_LATEST_POSTS,
-    COMMENT
+    COMMENT,
+    GET_OWN_POSTS
 } from "../constants/actionTypes";
 
 export default (
@@ -33,6 +34,7 @@ export default (
         buySellLatestPosts: [],
         jobSearchLatestPosts: [],
         latestPosts: [],
+        ownPosts: []
     },
     action
 ) => {
@@ -71,6 +73,13 @@ export default (
                     return post
                 })
             };
+        case GET_OWN_POSTS:
+            return {
+                ...state,
+                ownPosts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                numberOfPages: action.payload.numberOfPages,
+            }
         case GET_LATEST_POSTS:
             return {
                 ...state,

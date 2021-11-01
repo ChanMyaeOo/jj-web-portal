@@ -11,7 +11,7 @@ const RightPreview = () => {
     return (
         <Grid item lg={3} md={3} className={classes.rightPreview}>
             <LogIn />
-            <Link to="/" className={classes.btn}>See what I wrote</Link>
+            <Link to="/own-posts" className={classes.btn}>See what I wrote</Link>
             <img src={AdImg} alt="" className={classes.adImg}/>
             <img src={AdImg2} alt="" className={classes.adImg}/>
             <ul>

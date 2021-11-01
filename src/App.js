@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import ScrollToTop from './utils/ScrollToTop'
 import Layout from './layout/Layout'
@@ -18,10 +19,12 @@ import Notice from './pages/notice/Notice'
 import BuySell from './pages/buy-sell/BuySell'
 import Recruitment from './pages/recruitment/Recruitment'
 import Auth from './pages/auth/Auth'
+import OwnPosts from './pages/own-posts/OwnPosts'
 
 const App = () => {
     const dispatch = useDispatch()
     const { currentId } = useSelector(state => state.data)
+    const user = JSON.parse(localStorage.getItem("profile"))
 
     useEffect(() => {
         dispatch(getPosts())
@@ -32,6 +35,14 @@ const App = () => {
             <Router>
                 <ScrollToTop />
                 <Switch>
+                    <Route path="/own-posts">
+                        <Layout>
+                            {
+                                user ? <OwnPosts /> : <Redirect to="/auth" />
+                            }
+                            
+                        </Layout>
+                    </Route>
                     <Route path="/posts/:id">
                         <Layout>
                             <PostDetails />
@@ -42,11 +53,21 @@ const App = () => {
                             <Form />
                         </Layout>
                     </Route>
-                     <Route path="/auth">
+                     {/* <Route path="/auth">
+                        <Layout>
+                            {
+                                user ? <Redirect to="/" /> : <Auth />
+                            }
+                            
+                        </Layout>
+                    </Route> */}
+
+                    <Route path="/auth" exact component={() => (!user ? (
                         <Layout>
                             <Auth />
                         </Layout>
-                    </Route>
+                    ) : <Redirect to="/" />)} />
+
                     <Route path="/living-location-details">
                         <Layout>
                             <LivingLocation />
@@ -72,11 +93,12 @@ const App = () => {
                             <Recruitment />
                         </Layout>
                     </Route>
-                    <Route path="/">
+
+                    <Route exact path="/" component={() => (
                         <Layout>
                             <Home />
                         </Layout>
-                    </Route>
+                    )} />
                 </Switch>
             </Router>
         </>

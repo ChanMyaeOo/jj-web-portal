@@ -19,11 +19,13 @@ import JobSearchPosts from "../posts/JobSearchPosts";
 import LivingLocationPosts from "../posts/LivingLocationPosts";
 import Paginate from '../pagination/Paginate'
 import RightPreview from "../right-preview/RightPreview";
+import OwnPostsData from '../posts/OwnPostsData'
 
 
 const Preview = ({
     imgUrl,
     title,
+    showOwnPosts,
     showLivingLocation,
     showNotice,
     showBuyAndSell,
@@ -33,6 +35,7 @@ const Preview = ({
     pgForHomeAppliances,
     pgForRecruitment,
     pgForLiving,
+    pgForOwnPosts,
     page
 }) => {
     const classes = useStyles();
@@ -84,6 +87,15 @@ const Preview = ({
                                 </TableRow>
                             </TableHead>
                             <TableBody>
+
+                                {showOwnPosts && (
+                                    <OwnPostsData
+                                        imgUrl={imgUrl}
+                                        title={title}
+                                        redirectPathname={location.pathname}
+                                    />
+                                )}
+
                                 {showLivingLocation && (
                                     <LivingLocationPosts
                                         imgUrl={imgUrl}
@@ -133,6 +145,10 @@ const Preview = ({
 
                     <Paper elevation={6}>
                         <Paginate pgForLiving={pgForLiving} page={page} />
+                    </Paper>
+
+                    <Paper elevation={6}>
+                        <Paginate pgForOwnPosts={pgForOwnPosts} page={page} />
                     </Paper>
                 </div>
             </Grid>

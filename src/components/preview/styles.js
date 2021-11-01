@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
     detailsWrapper: {
         width: "90%",
         margin: "0 auto",
+        marginTop: '20px'
     },
     logoWrapper: {
         display: "flex",

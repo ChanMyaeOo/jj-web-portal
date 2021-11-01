@@ -14,7 +14,7 @@ const LivingLocation = () => {
     const page = query.get('page') || 1;
     return (
         <div>
-            <Preview imgUrl={LivLocImg} title="Living/Location" showLivingLocation={true} pgForLiving={true} page={page}/>
+            <Preview imgUrl={LivLocImg} title="Living/Location" showLivingLocation={true} pgForLiving={true} page={page} showWriting={true}/>
         </div>
     )
 }

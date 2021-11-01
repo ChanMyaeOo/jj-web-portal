@@ -25,7 +25,7 @@ import { getPhotoAlbumPosts } from "../../actions/posts";
 import Paginate from '../pagination/Paginate'
 import RightPreview from "../right-preview/RightPreview";
 
-const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page }) => {
+const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page, showWriting }) => {
     const classes = useStyles();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page })
                 <div className={classes.detailsHeader}>
                     <p>Total 200 posts </p>
 
-                    {user?.result && (
+                    {user?.result && showWriting && (
                         <Link
                             to={{
                                 pathname: "/form",

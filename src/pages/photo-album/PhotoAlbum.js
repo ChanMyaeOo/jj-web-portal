@@ -12,7 +12,7 @@ const PhotoAlbum = () => {
     const page = query.get('page') || 1;
     return (
         <div>
-            <PhotoPreview imgUrl={PhotoAlbumImg} title="Photo Album" pgForPhotoAlbum={true} page={page}/>
+            <PhotoPreview imgUrl={PhotoAlbumImg} title="Photo Album" showWriting={true} pgForPhotoAlbum={true} page={page}/>
         </div>
     )
 }

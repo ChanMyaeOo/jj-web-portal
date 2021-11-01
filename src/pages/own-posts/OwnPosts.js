@@ -27,15 +27,8 @@ const OwnPosts = () => {
         (state) => state.posts
     );
     const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(getOwnPosts(1, '6172e54770afdd2939a46791'))
-    // }, [posts])
-
-    // console.log('Testing Own Posts ' ,ownPosts.forEach(p => console.log(p.tag)))
-    // ownPosts.forEach((element, index, array) => console.log(element.tag))
     return (
-        <div>
+        <div className={classes.ownPosts}>
             <Preview  showOwnPosts={true} hideLogo={false} pgForOwnPosts={true} page={page} />
         </div>
     );

@@ -12,7 +12,7 @@ const BuySell = () => {
     const page = query.get('page') || 1;
     return (
         <div>
-            <Preview imgUrl={BuySellImg} title="Home Appliances" showBuyAndSell={true} pgForHomeAppliances={true} page={page} />
+            <Preview imgUrl={BuySellImg} title="Home Appliances" showBuyAndSell={true} pgForHomeAppliances={true} page={page} showWriting={true}/>
         </div>
     )
 }

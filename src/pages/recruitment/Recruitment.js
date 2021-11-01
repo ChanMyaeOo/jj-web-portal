@@ -12,7 +12,7 @@ const Recruitment = () => {
     const page = query.get('page') || 1;
     return (
         <div>
-            <Preview imgUrl={JobSearchImg} title="Recruitment/Job Search" showJobSearch={true} pgForRecruitment={true} page={page} />
+            <Preview imgUrl={JobSearchImg} title="Recruitment/Job Search" showJobSearch={true} pgForRecruitment={true} page={page} showWriting={true} />
         </div>
     )
 }

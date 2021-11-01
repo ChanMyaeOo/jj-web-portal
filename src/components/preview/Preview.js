@@ -36,7 +36,8 @@ const Preview = ({
     pgForRecruitment,
     pgForLiving,
     pgForOwnPosts,
-    page
+    page,
+    showWriting
 }) => {
     const classes = useStyles();
     const location = useLocation();
@@ -57,7 +58,8 @@ const Preview = ({
                 <div className={classes.detailsHeader}>
                     <p>Total 200 posts </p>
 
-                    {user?.result && (
+                    
+                    {user?.result && showWriting && (
                         <Link
                             to={{
                                 pathname: "/form",

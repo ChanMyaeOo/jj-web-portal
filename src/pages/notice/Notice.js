@@ -14,7 +14,7 @@ const Notice = () => {
     const page = query.get('page') || 1;
     return (
         <div>
-            <Preview imgUrl={NoticeImg} title="Notice" showNotice={true} pgForNotice={true} page={page}/>
+            <Preview imgUrl={NoticeImg} title="Notice" showWriting={true} showNotice={true} pgForNotice={true} page={page}/>
         </div>
     );
 };

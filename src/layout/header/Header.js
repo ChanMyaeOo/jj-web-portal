@@ -67,7 +67,14 @@ const Header = () => {
                         <div>|</div>
 
                         <div>
-                            <Link to="/auth">join the membership</Link>
+                            {
+                                user?.result ? (
+                                    <Link to="/own-posts">My Page</Link>
+                                ) : (
+
+                                    <Link to="/auth">join the membership</Link>
+                                )
+                            }
                         </div>
 
                         <img src={PortalHeaderImg} alt="portal header" />

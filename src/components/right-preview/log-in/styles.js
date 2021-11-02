@@ -25,6 +25,21 @@ const useStyles = makeStyles((theme) => ({
        "&:hover": {
            cursor: 'pointer'
        }
+   },
+   formLogOut: {
+       display: 'flex',
+       padding: '20px',
+       "& > div": {
+           marginLeft: '10px'
+       }
+   },
+   icon: {
+       fontSize: '40px'
+   },
+   logOutBtn: {
+       marginTop: '5px',
+       padding: '2px 5px',
+       cursor: 'pointer'
    }
 }));
 

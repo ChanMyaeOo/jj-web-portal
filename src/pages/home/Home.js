@@ -16,7 +16,8 @@ import {
     getPhotoAlbumLatestPosts,
     getBuySellLatestPosts,
     getJobSearchLatestPosts,
-    getLatestPosts
+    getLatestPosts,
+    getPhotoAlbumTotal
 } from "../../actions/posts";
 import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
 import PhotoAlbumImg from "../../images/photo-album.png";
@@ -52,6 +53,7 @@ const Home = () => {
         dispatch(getJobSearchLatestPosts());
         dispatch(getLivingLocationPosts());
         dispatch(getLatestPosts())
+        dispatch(getPhotoAlbumTotal())
     }, []);
     console.log("Home page", livingLocationPosts);
 

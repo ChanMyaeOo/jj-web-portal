@@ -33,3 +33,4 @@ export const getJobSearchPosts = (page) => API.get(`/posts/job-search?page=${pag
 export const getJobSearchLatestPosts = () => API.get('/posts/job-search-latest')
 export const fetchPosts = () => API.get('/posts')
 export const getLatestPosts = () => API.get('/posts/latestPosts')
+export const getPhotoAlbumTotal = () => API.get('/posts/ptotal')

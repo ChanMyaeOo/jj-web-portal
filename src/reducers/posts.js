@@ -17,7 +17,8 @@ import {
     END_LOADING,
     GET_LATEST_POSTS,
     COMMENT,
-    GET_OWN_POSTS
+    GET_OWN_POSTS,
+    GET_PHOTO_ALBUM_TOTAL
 } from "../constants/actionTypes";
 
 export default (
@@ -34,7 +35,8 @@ export default (
         buySellLatestPosts: [],
         jobSearchLatestPosts: [],
         latestPosts: [],
-        ownPosts: []
+        ownPosts: [],
+        photoAlbumTotal: 0
     },
     action
 ) => {
@@ -103,6 +105,11 @@ export default (
             return {
                 ...state,
                 photoAlbumLatestPosts: action.payload,
+            };
+        case GET_PHOTO_ALBUM_TOTAL:
+            return {
+                ...state,
+                photoAlbumTotal: action.payload
             };
         case GET_NOTICE_POSTS:
             return {

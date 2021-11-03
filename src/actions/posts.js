@@ -17,7 +17,8 @@ import {
     GET_JOB_SEARCH_LATEST_POSTS,
     GET_LATEST_POSTS,
     COMMENT,
-    GET_OWN_POSTS
+    GET_OWN_POSTS,
+    GET_PHOTO_ALBUM_TOTAL
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -153,6 +154,17 @@ export const getPhotoAlbumLatestPosts = () => async (dispatch) => {
         console.log(error);
     }
 };
+
+export const getPhotoAlbumTotal = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getPhotoAlbumTotal();
+        dispatch({ type: GET_PHOTO_ALBUM_TOTAL, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const getNoticePosts = (page) => async (dispatch) => {
     try {

@@ -12,6 +12,7 @@ import {
     Avatar,
 } from "@material-ui/core/";
 import { useHistory } from "react-router-dom";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import useStyles from "./styles";
 
 const PhotoCard = ({
@@ -22,9 +23,12 @@ const PhotoCard = ({
     imgUrl,
     title,
     showDetails,
+    name,
+    createdAt
 }) => {
     const classes = useStyles();
     const history = useHistory();
+    const date = new Date(createdAt)
 
     const openPost = () => {
         history.push({
@@ -39,14 +43,15 @@ const PhotoCard = ({
         <Card onClick={openPost}  className={classes.photoCard}>
             <CardMedia className={classes.media} image={postImgUrl} />
             <CardContent>
-                <p>{postTitle}</p>
-                {showDetails && <p>:) Creator</p>}
+                <p style={{ marginBottom: '10px'}}>{postTitle}</p>
+                {showDetails && <p className={classes.creator}><AccountCircleIcon /> {name}</p>}
             </CardContent>
 
             {showDetails && (
                 <CardActions disableSpacing>
-                    <div>3</div>
-                    <div>2 Likes</div>
+                    <div style={{ fontSize: '90%'}}>{
+                        date.getDate() +  "-" + date.toLocaleString('default', { month: 'long' }) + "-" + date.getFullYear()
+                    }</div>
                 </CardActions>
             )}
         </Card>

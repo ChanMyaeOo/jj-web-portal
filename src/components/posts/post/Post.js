@@ -15,18 +15,19 @@ const Post = ({ post, imgUrl, title, redirectPathname }) => {
             redirectPathname
         })
     }
-    console.log('Post location ', redirectPathname)
+    const date = new Date(post.createdAt)
+    const user = JSON.parse(localStorage.getItem('profile'))
+    console.log('Post Test ', post)
+
     return (
         <TableRow>
-            <TableCell component="th" scope="row">
-                100
-            </TableCell>
             <TableCell align="center" onClick={openPost} className={classes.title}>
                 {post.title}
             </TableCell>
-            <TableCell align="center">Polar</TableCell>
-            <TableCell align="center">20</TableCell>
-            <TableCell align="center">7-10-2021</TableCell>
+            <TableCell align="center">{post.name}</TableCell>
+            <TableCell align="center">{
+                date.getDate() +  "-" + date.toLocaleString('default', { month: 'long' }) + "-" + date.getFullYear()
+            }</TableCell>
         </TableRow>
     );
 };

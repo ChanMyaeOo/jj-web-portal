@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme) => ({
     photoCard: {
         cursor: 'pointer',
         margin: '10px'
+    },
+    creator: {
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: '90%'
     }
 }));
 

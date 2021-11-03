@@ -81,10 +81,8 @@ const Preview = ({
                         >
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>number</TableCell>
                                     <TableCell align="center">title</TableCell>
                                     <TableCell align="center">writer</TableCell>
-                                    <TableCell align="center">lookup</TableCell>
                                     <TableCell align="center">date</TableCell>
                                 </TableRow>
                             </TableHead>

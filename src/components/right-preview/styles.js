@@ -33,7 +33,18 @@ const useStyles = makeStyles((theme) => ({
     adImg: {
         width: '100%',
         margin: '10px 0'
-    }
+    },
+     // Responsive Design
+    [theme.breakpoints.down("md")]: {
+        
+    },
+    [theme.breakpoints.down("xs")]: {
+      adImg: {
+          display: 'block',
+          width: '270px',
+          margin: '10px auto'
+      }
+    },
 }));
 
 export default useStyles;

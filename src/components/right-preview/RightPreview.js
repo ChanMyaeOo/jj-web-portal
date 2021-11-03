@@ -9,7 +9,7 @@ import AdImg2 from '../../images/ad2.jpg'
 const RightPreview = () => {
     const classes = useStyles()
     return (
-        <Grid item lg={3} md={3} className={classes.rightPreview}>
+        <Grid item lg={3} md={3} xs={12} className={classes.rightPreview}>
             <LogIn />
             <Link to="/own-posts" className={classes.btn}>See what I wrote</Link>
             <img src={AdImg} alt="" className={classes.adImg}/>

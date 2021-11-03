@@ -25,7 +25,7 @@ const Header = () => {
         history.push("/auth");
 
         setUser(null);
-        history.go(0)
+        history.go(0);
     };
 
     useEffect(() => {
@@ -58,7 +58,12 @@ const Header = () => {
                     <div className={classes.topHeaderWrap}>
                         <div>
                             {user?.result ? (
-                                <div onClick={logout} className={classes.headerLogout}>Log Out</div>
+                                <div
+                                    onClick={logout}
+                                    className={classes.headerLogout}
+                                >
+                                    Log Out
+                                </div>
                             ) : (
                                 <Link to="/auth">Log In</Link>
                             )}
@@ -67,14 +72,11 @@ const Header = () => {
                         <div>|</div>
 
                         <div>
-                            {
-                                user?.result ? (
-                                    <Link to="/own-posts">My Page</Link>
-                                ) : (
-
-                                    <Link to="/auth">join the membership</Link>
-                                )
-                            }
+                            {user?.result ? (
+                                <Link to="/own-posts">My Page</Link>
+                            ) : (
+                                <Link to="/auth">join the membership</Link>
+                            )}
                         </div>
 
                         <img src={PortalHeaderImg} alt="portal header" />
@@ -157,7 +159,13 @@ const Header = () => {
                         className={classes.resHeaderLogo}
                     />
                 </Link>
-                <div>join</div>
+                {
+                    user?.result ? (
+                        <div onClick={logout}>Log Out</div>
+                    ) : (
+                        <div onClick={() => { history.push('/auth')}}>Log In</div>
+                    )
+                }
             </div>
 
             <div className={classes.overlay} id="res-overlay">
@@ -166,6 +174,10 @@ const Header = () => {
                         src={PortalLogoImg}
                         alt="header logo"
                         className={classes.resHeaderLogo}
+                        onClick={() => {
+                            history.push('/')
+                            handleCloseMenu()
+                        }}
                     />
                     <CloseIcon
                         className={classes.resClose}
@@ -183,11 +195,18 @@ const Header = () => {
                         </div>
 
                         <ul className={classes.resInnerContent}>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
+                            <li
+                                onClick={() => {
+                                    history.push("/photo-album");
+                                    handleCloseMenu();
+                                }}
+                            >
+                                Photo Album
+                            </li>
+                            <li onClick={() => {
+                                history.push('/notice')
+                                handleCloseMenu();
+                            }}>Notice</li>
                         </ul>
                     </li>
 
@@ -200,11 +219,10 @@ const Header = () => {
                         </div>
 
                         <ul className={classes.resInnerContent}>
-                            <li>Living/Location</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
+                            <li onClick={() => {
+                                history.push('/living-location-details')
+                                handleCloseMenu()
+                            }}>Living/Location</li>
                         </ul>
                     </li>
 
@@ -217,11 +235,10 @@ const Header = () => {
                         </div>
 
                         <ul className={classes.resInnerContent}>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
+                            <li onClick={() => {
+                                history.push('/buy-sell')
+                                handleCloseMenu()
+                            }}>Home Appliances</li>
                         </ul>
                     </li>
 
@@ -234,11 +251,10 @@ const Header = () => {
                         </div>
 
                         <ul className={classes.resInnerContent}>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
+                            <li onClick={() => {
+                                history.push('/job-search')
+                                handleCloseMenu()
+                            }}>Recruitment/Job Search</li>
                         </ul>
                     </li>
 
@@ -251,11 +267,10 @@ const Header = () => {
                         </div>
 
                         <ul className={classes.resInnerContent}>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
+                            <li onClick={() => {
+                                history.push('/living-location-details')
+                                handleCloseMenu()
+                            }}>Living/Location</li>
                         </ul>
                     </li>
                 </ul>

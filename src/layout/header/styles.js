@@ -92,7 +92,8 @@ const useStyles = makeStyles((theme) => ({
         background: '#111',
         position: 'fixed',
         top: '0',
-        display: 'none'
+        display: 'none',
+        zIndex: '1000'
     },
 
     resClose: {

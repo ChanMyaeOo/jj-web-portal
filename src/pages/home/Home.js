@@ -184,7 +184,7 @@ const Home = () => {
                                 className={classes.photoContainer}
                             >
                                 {photoAlbumLatestPosts.map((post) => (
-                                    <Grid item md={4} key={post._id}>
+                                    <Grid item md={4} xs={6} key={post._id}>
                                         <PhotoCard
                                             postImgUrl={post.selectedFile}
                                             postTitle={post.title}

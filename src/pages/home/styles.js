@@ -51,7 +51,21 @@ const useStyles = makeStyles((theme) => ({
     },
     photoContainer: {
         marginTop: '20px'
-    }
+    },
+
+    // Responsive Design
+    [theme.breakpoints.down("md")]: {
+        
+    },
+    [theme.breakpoints.down("xs")]: {
+       postsWrapper: {
+           flexDirection: 'column'
+       },
+       storyContainer: {
+           width: '100%',
+           marginBottom: '15px'
+       }
+    },
 
 }));
 

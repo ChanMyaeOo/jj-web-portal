@@ -42,7 +42,7 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page, s
     console.log("Photo Album Posts Testing 111", photoAlbumPosts.length);
     return (
         <Grid container className={classes.detailsWrapper}>
-            <Grid item lg={9} md={9}>
+            <Grid item lg={9} md={9} xs={12}>
                 {hideLogo ? (
                     <div className={classes.logoWrapper}>
                         <img src={imgUrl} alt="logo" />
@@ -76,7 +76,7 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page, s
                         className={classes.photoContainer}
                     >
                         {photoAlbumPosts?.map((post) => (
-                            <Grid item md={4} key={post._id}>
+                            <Grid item md={4} xs={6} key={post._id}>
                                 <PhotoCard
                                     showDetails={true}
                                     postImgUrl={post.selectedFile}

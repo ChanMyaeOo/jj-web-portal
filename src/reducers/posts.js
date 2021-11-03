@@ -18,7 +18,11 @@ import {
     GET_LATEST_POSTS,
     COMMENT,
     GET_OWN_POSTS,
-    GET_PHOTO_ALBUM_TOTAL
+    GET_PHOTO_ALBUM_TOTAL,
+    GET_NOTICE_TOTAL,
+    GET_LIV_TOTAL,
+    GET_BUY_SELL_TOTAL,
+    GET_JOB_SEARCH_TOTAL
 } from "../constants/actionTypes";
 
 export default (
@@ -36,7 +40,11 @@ export default (
         jobSearchLatestPosts: [],
         latestPosts: [],
         ownPosts: [],
-        photoAlbumTotal: 0
+        photoAlbumTotal: 0,
+        noticeTotal: 0,
+        livTotal: 0,
+        buySellTotal: 0,
+        jobSearchTotal: 0
     },
     action
 ) => {
@@ -94,6 +102,11 @@ export default (
                 currentPage: action.payload.currentPage,
                 numberOfPages: action.payload.numberOfPages,
             };
+        case GET_LIV_TOTAL:
+            return {
+                ...state,
+                livTotal: action.payload
+            };
         case GET_PHOTO_ALBUM_POSTS:
             return {
                 ...state,
@@ -118,12 +131,22 @@ export default (
                 currentPage: action.payload.currentPage,
                 numberOfPages: action.payload.numberOfPages,
             };
+        case GET_NOTICE_TOTAL:
+            return {
+                ...state,
+                noticeTotal: action.payload
+            };
         case GET_BUY_SELL_POSTS:
             return {
                 ...state,
                 buySellPosts: action.payload.data,
                 currentPage: action.payload.currentPage,
                 numberOfPages: action.payload.numberOfPages,
+            };
+        case GET_BUY_SELL_TOTAL:
+            return {
+                ...state,
+                buySellTotal: action.payload
             };
         case GET_BUY_SELL_LATEST_POSTS:
             return {
@@ -143,6 +166,11 @@ export default (
                 jobSearchLatestPosts: action.payload,
             };
 
+        case GET_JOB_SEARCH_TOTAL:
+            return {
+                ...state,
+                jobSearchTotal: action.payload
+            }
         case GET_NOTICE_LATEST_POSTS:
             return {
                 ...state,

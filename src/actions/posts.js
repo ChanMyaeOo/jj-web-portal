@@ -18,7 +18,11 @@ import {
     GET_LATEST_POSTS,
     COMMENT,
     GET_OWN_POSTS,
-    GET_PHOTO_ALBUM_TOTAL
+    GET_PHOTO_ALBUM_TOTAL,
+    GET_NOTICE_TOTAL,
+    GET_LIV_TOTAL,
+    GET_BUY_SELL_TOTAL,
+    GET_JOB_SEARCH_TOTAL
 } from "../constants/actionTypes";
 import * as api from "../api/index";
 
@@ -132,6 +136,17 @@ export const getLivingLocationPosts = (page) => async (dispatch) => {
     }
 };
 
+export const getLivTotal = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getLivTotal();
+        dispatch({ type: GET_LIV_TOTAL, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getPhotoAlbumPosts = (page) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
@@ -188,6 +203,17 @@ export const getNoticeLatestPosts = () => async (dispatch) => {
     }
 };
 
+export const getNoticeTotal = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getNoticeTotal();
+        dispatch({ type: GET_NOTICE_TOTAL, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getBuySellPosts = (page) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
@@ -199,6 +225,17 @@ export const getBuySellPosts = (page) => async (dispatch) => {
         console.log(error);
     }
 };
+
+export const getBuySellTotal = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getBuySellTotal();
+        dispatch({ type: GET_BUY_SELL_TOTAL, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const getBuySellLatestPosts = () => async (dispatch) => {
     try {
@@ -233,3 +270,14 @@ export const getJobSearchLatestPosts = () => async (dispatch) => {
         console.log(error);
     }
 };
+
+export const getJobSearchTotal = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.getJobSearchTotal();
+        dispatch({ type: GET_JOB_SEARCH_TOTAL, payload: data });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error)
+    }
+}

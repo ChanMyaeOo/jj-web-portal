@@ -17,7 +17,11 @@ import {
     getBuySellLatestPosts,
     getJobSearchLatestPosts,
     getLatestPosts,
-    getPhotoAlbumTotal
+    getPhotoAlbumTotal,
+    getNoticeTotal,
+    getLivTotal,
+    getBuySellTotal,
+    getJobSearchTotal
 } from "../../actions/posts";
 import PhotoCard from "../../components/photo-preview/photo-card/PhotoCard";
 import PhotoAlbumImg from "../../images/photo-album.png";
@@ -54,6 +58,10 @@ const Home = () => {
         dispatch(getLivingLocationPosts());
         dispatch(getLatestPosts())
         dispatch(getPhotoAlbumTotal())
+        dispatch(getNoticeTotal())
+        dispatch(getLivTotal())
+        dispatch(getBuySellTotal())
+        dispatch(getJobSearchTotal())
     }, []);
     console.log("Home page", livingLocationPosts);
 

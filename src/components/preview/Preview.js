@@ -37,7 +37,8 @@ const Preview = ({
     pgForLiving,
     pgForOwnPosts,
     page,
-    showWriting
+    showWriting,
+    total
 }) => {
     const classes = useStyles();
     const location = useLocation();
@@ -56,7 +57,7 @@ const Preview = ({
                 ) : null}
 
                 <div className={classes.detailsHeader}>
-                    <p>Total 200 posts </p>
+                    <p>Total {total} posts </p>
 
                     
                     {user?.result && showWriting && (

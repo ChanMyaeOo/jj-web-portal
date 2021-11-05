@@ -22,7 +22,7 @@ const Header = () => {
     const logout = () => {
         dispatch({ type: LOGOUT });
 
-        history.push("/auth");
+        history.push("/");
 
         setUser(null);
         history.go(0);

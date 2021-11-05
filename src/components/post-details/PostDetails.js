@@ -29,7 +29,7 @@ const PostDetails = () => {
 
     if(post)  {
 
-        console.log("Post Details Post Test", post);
+        // console.log("Post Details Post Test", post);
     }
 
     useEffect(() => {
@@ -146,6 +146,7 @@ const PostDetails = () => {
                     title="Living/Location"
                     showLivingLocation={true}
                     hideLogo={false}
+                    pgForLiving={location.pgForLiving}
                 />
             )}
 

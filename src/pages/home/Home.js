@@ -47,7 +47,7 @@ const Home = () => {
     } = useSelector((state) => state.posts);
     const history = useHistory();
 
-    console.log("Notice latest posts", noticeLatestPosts);
+    // console.log("Notice latest posts", noticeLatestPosts);
 
     useEffect(() => {
         dispatch(getPhotoAlbumPosts());
@@ -63,7 +63,7 @@ const Home = () => {
         dispatch(getBuySellTotal())
         dispatch(getJobSearchTotal())
     }, []);
-    console.log("Home page", livingLocationPosts);
+    // console.log("Home page", livingLocationPosts);
 
     const openPost = (id, postTag) => {
         if (postTag === "Notice") {
@@ -96,7 +96,16 @@ const Home = () => {
                 imgUrl: LivingLocationImg,
                 title: "Living/Location",
                 redirectPathname: "/living-location-details",
+                pgForLiving: true
             });
+        } else if(postTag === "Photo Album") {
+            history.push({
+                pathname: `/posts/${id}`,
+                imgUrl: PhotoAlbumImg,
+                title: 'Photo Album',
+                redirectPathname: '/photo-album',
+                pgForPhotoAlbum: true
+            })
         }
     };
 

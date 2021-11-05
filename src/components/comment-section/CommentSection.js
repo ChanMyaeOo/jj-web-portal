@@ -19,7 +19,7 @@ const CommentSection = ({ post }) => {
         setComments(post.comments)
     }, [post.comments, id]);
 
-    console.log('Comment section post comments', post.comments)
+    // console.log('Comment section post comments', post.comments)
 
     const handleClick = async () => {
         const finalComment = `${user.result.name}: ${comment}`;

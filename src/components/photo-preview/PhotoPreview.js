@@ -39,7 +39,7 @@ const PhotoPreview = ({ imgUrl, title, hideLogo = true, pgForPhotoAlbum, page, s
         dispatch(getPhotoAlbumTotal());
     }, [posts]);
 
-    console.log("Photo Album Posts Testing 111", photoAlbumPosts.length);
+    // console.log("Photo Album Posts Testing 111", photoAlbumPosts.length);
     return (
         <Grid container className={classes.detailsWrapper}>
             <Grid item lg={9} md={9} xs={12}>

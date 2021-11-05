@@ -6,7 +6,7 @@ import Post from './post/Post'
 const Posts = ({ imgUrl, title, redirectPathname }) => {
     const { posts } = useSelector((state) => state.posts);
     const dispatch = useDispatch();
-    console.log('Posts List', posts)
+    // console.log('Posts List', posts)
 
     useEffect(() => {
         dispatch(getPosts())

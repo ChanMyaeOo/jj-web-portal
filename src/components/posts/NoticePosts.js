@@ -13,7 +13,7 @@ const NoticePosts = ({ imgUrl, title, redirectPathname }) => {
     useEffect(() => {
         dispatch(getNoticePosts());
     }, [posts]);
-    console.log("Notice Posts test", noticePosts)
+    // console.log("Notice Posts test", noticePosts)
     return (
         <>
             {isLoading ? (

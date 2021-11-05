@@ -17,7 +17,7 @@ const Post = ({ post, imgUrl, title, redirectPathname }) => {
     }
     const date = new Date(post.createdAt)
     const user = JSON.parse(localStorage.getItem('profile'))
-    console.log('Post Test ', post)
+    // console.log('Post Test ', post)
 
     return (
         <TableRow>

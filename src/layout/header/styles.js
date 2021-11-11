@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "58px",
         "& > li": {
             listStyle: "none",
-            zIndex: '1000',
+            zIndex: '2000',
             "&:hover": {
                 "& $ul": {
                     zIndex: '1000',

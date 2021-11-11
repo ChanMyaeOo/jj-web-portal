@@ -1,5 +1,6 @@
 {
   "name": "starter-react-project",
+  "homepage": "https://www.irelandsarang.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
